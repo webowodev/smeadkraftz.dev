@@ -1,7 +1,5 @@
 import Head from "next/head";
 import BaseLayout from "@/layouts/baseLayout";
-import HelloSection from "@/components/organisms/home/helloSection";
-import { Button, Card, CardBody, Stack, Text } from "@chakra-ui/react";
 
 export default function Home() {
   return (

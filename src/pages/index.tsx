@@ -1,21 +1,10 @@
 import Head from "next/head";
 import BaseLayout from "@/layouts/baseLayout";
 import HelloSection from "@/components/organisms/home/helloSection";
-import {
-  Box,
-  Button,
-  Heading,
-  Link,
-  List,
-  ListIcon,
-  ListItem,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Link, Stack, Text } from "@chakra-ui/react";
 import Introduce from "@/components/molecules/introduce";
 import AppContainer from "@/components/atoms/appContainer";
 import ContentWithTitle from "@/components/molecules/contentWithTitle";
-import { CheckIcon } from "@chakra-ui/icons";
 
 export default function Home() {
   return (
