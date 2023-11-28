@@ -1,10 +1,20 @@
 import Head from "next/head";
 import BaseLayout from "@/layouts/baseLayout";
 import HelloSection from "@/components/organisms/home/helloSection";
-import { Box, Button, Link, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Link,
+  List,
+  ListIcon,
+  ListItem,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import Introduce from "@/components/molecules/introduce";
 import AppContainer from "@/components/atoms/appContainer";
 import ContentWithTitle from "@/components/molecules/contentWithTitle";
+import { SocialIcon } from "react-social-icons";
 
 export default function Home() {
   return (
@@ -27,7 +37,7 @@ export default function Home() {
             <ContentWithTitle title={"About"}>
               <Text>
                 👋 Hello! I am a Full Stack Developer with over 5 years of
-                experience, currently work as a VP of Engineering at{" "}
+                experience, currently working as VP of Engineering at{" "}
                 <Link
                   href="https://karyakarsa.com"
                   color={"red.500"}
@@ -106,6 +116,22 @@ export default function Home() {
                     , Indonesia
                   </Text>
                 </Stack>
+              </Stack>
+            </ContentWithTitle>
+            {/* End bio */}
+
+            {/* Start Links */}
+            <ContentWithTitle title="Let's Connect!">
+              <Stack direction={"row"}>
+                <SocialIcon
+                  url="https://github.com/daemswibowo"
+                  target="_blank"
+                />
+                <SocialIcon url="https://x.com/daemswibowo" target="_blank" />
+                <SocialIcon
+                  url="https://instagram.com/daemswibowo"
+                  target="_blank"
+                />
               </Stack>
             </ContentWithTitle>
             {/* End bio */}

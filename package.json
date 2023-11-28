@@ -20,6 +20,7 @@
     "react": "^18",
     "react-day-and-night-toggle": "^1.0.18",
     "react-dom": "^18",
+    "react-social-icons": "^6.7.0",
     "react-type-animation": "^3.2.0"
   },
   "devDependencies": {
