@@ -1,3 +1,4 @@
+"use client";
 import { useColorMode } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import DayNightToggle from "react-day-and-night-toggle";

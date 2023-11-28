@@ -1,3 +1,4 @@
+"use client";
 import { Box, Flex, Stack, Text, useColorMode } from "@chakra-ui/react";
 import AppContainer from "../../atoms/appContainer";
 import ToggleColorModeButton from "@/components/atoms/toggleColorModeButton";
@@ -12,7 +13,7 @@ export default function NavigationHeader() {
       w="100%"
       position="fixed"
       as="nav"
-      style={{ backdropFilter: "blur(4px)" }}
+      style={{ backdropFilter: "blur(4px)", WebkitBackdropFilter: "blur(4px)" }}
       zIndex={1}
     >
       <AppContainer>

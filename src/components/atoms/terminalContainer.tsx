@@ -33,12 +33,12 @@ export default function TerminalContainer({ children }: PropsWithChildren) {
         <Box px={4} pb={2}>
           <Stack fontFamily={"mono"} direction={"row"} spacing={0}>
             <Text textColor={"green.600"} fontWeight={"bold"}>
-              smeadkraftz@Macbook_Air:
+              smeadkraftz@macbook:
             </Text>
             <Text textColor={"blue.300"}>~</Text>
             <Text textColor={"gray.500"}>$&nbsp;</Text>
             <TypeAnimation
-              sequence={["sh ./greeting.sh"]}
+              sequence={["greeting"]}
               cursor={true}
               style={{
                 color: "var(--chakra-colors-green-600)",
