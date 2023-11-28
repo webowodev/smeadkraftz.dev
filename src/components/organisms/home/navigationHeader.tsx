@@ -1,23 +1,10 @@
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import {
-  Avatar,
-  Box,
-  Button,
-  Center,
-  Flex,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
-  Stack,
-  Text,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Box, Flex, Stack, Text, useColorMode } from "@chakra-ui/react";
 import AppContainer from "../../atoms/appContainer";
+import ToggleColorModeButton from "@/components/atoms/toggleColorModeButton";
+import Logo from "@/components/atoms/logo";
 
 export default function NavigationHeader() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   return (
     <Box
@@ -27,26 +14,23 @@ export default function NavigationHeader() {
       as="nav"
       style={{ backdropFilter: "blur(4px)" }}
       zIndex={1}
-      px={4}
     >
       <AppContainer>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Stack alignItems={"start"} spacing={4} direction={"row"}>
+          <Stack alignItems={"start"} spacing={2} direction={"row"}>
             <Box>
-              <Text fontFamily={"heading"} fontWeight={"extrabold"}>
-                DIMAS WIBOWO
-              </Text>
+              <Logo color={colorMode === "light" ? "black" : "white"} />
             </Box>
-            <Box>Logo</Box>
+            <Text fontFamily={"mono"} fontWeight="bold">
+              DIMAS WIBOWO
+            </Text>
           </Stack>
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
-              <Button onClick={toggleColorMode}>
-                {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-              </Button>
+              <ToggleColorModeButton />
 
-              <Menu>
+              {/* <Menu>
                 <MenuButton
                   as={Button}
                   rounded={"full"}
@@ -77,7 +61,7 @@ export default function NavigationHeader() {
                   <MenuItem>Account Settings</MenuItem>
                   <MenuItem>Logout</MenuItem>
                 </MenuList>
-              </Menu>
+              </Menu> */}
             </Stack>
           </Flex>
         </Flex>

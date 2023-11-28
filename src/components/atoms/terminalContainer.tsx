@@ -9,7 +9,7 @@ export default function TerminalContainer({ children }: PropsWithChildren) {
       border={"1px"}
       borderRadius={"10px"}
       overflow={"hidden"}
-      borderColor={useColorModeValue("gray.100", "gray.800")}
+      borderColor={useColorModeValue("gray.50", "gray.900")}
       bg={useColorModeValue("white", "gray.800")}
       minH="120px"
     >
@@ -38,9 +38,13 @@ export default function TerminalContainer({ children }: PropsWithChildren) {
             <Text textColor={"blue.300"}>~</Text>
             <Text textColor={"gray.500"}>$&nbsp;</Text>
             <TypeAnimation
-              sequence={["whoami"]}
+              sequence={["sh ./greeting.sh"]}
               cursor={true}
-              style={{ color: "green", fontFamily: "var(--chakra-fonts-mono)" }}
+              style={{
+                color: "var(--chakra-colors-green-600)",
+                fontWeight: "bold",
+                fontFamily: "var(--chakra-fonts-mono)",
+              }}
             ></TypeAnimation>
           </Stack>
           {children}

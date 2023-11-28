@@ -4,12 +4,15 @@ import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 const config: ThemeConfig = {
   initialColorMode: "light",
   useSystemColorMode: false,
+  disableTransitionOnChange: false,
 };
 
 const styles = {
   global: (props: StyleFunctionProps) => ({
     body: {
-      bg: mode("gray.50", "gray.900")(props),
+      bg: mode("white", "gray.900")(props),
+      transitionProperty: "all",
+      transitionDuration: "ultra-slow",
     },
   }),
 };
@@ -19,28 +22,28 @@ const theme = extendTheme({
   styles,
   colors: {
     gray: {
-      "50": "#EEF3F6",
-      "100": "#D0DEE6",
-      "200": "#B3C8D6",
-      "300": "#95B3C6",
-      "400": "#779DB6",
-      "500": "#5988A6",
-      "600": "#476D85",
-      "700": "#355264",
-      "800": "#243642",
-      "900": "#121B21",
+      "50": "#e8e8e9	",
+      "100": "#d1d1d2",
+      "200": "#bababc",
+      "300": "#a3a3a6",
+      "400": "#8c8d90",
+      "500": "#747679",
+      "600": "#5d5f63",
+      "700": "#46484d",
+      "800": "#2f3136",
+      "900": "#181a20",
     },
     green: {
-      "50": "#F3F9EC",
-      "100": "#DCEDC9",
-      "200": "#C6E2A7",
-      "300": "#B0D684",
-      "400": "#9ACB62",
-      "500": "#84C03F",
-      "600": "#699933",
-      "700": "#4F7326",
-      "800": "#354D19",
-      "900": "#1A260D",
+      "50": "#EBF9F3",
+      "100": "#ccefe0",
+      "200": "#99dfc2",
+      "300": "#66cfa3",
+      "400": "#33bf85",
+      "500": "#00AF66",
+      "600": "#008c52",
+      "700": "#007a47",
+      "800": "#004629",
+      "900": "#002314",
     },
     pale: {
       "50": "#F4F9EB",
@@ -56,8 +59,8 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    body: "Noto Sans, sans-serif",
-    heading: "Raleway, sans-serif",
+    body: "Urbanist, sans-serif",
+    heading: "Urbanist, sans-serif",
     mono: "Menlo, monospace",
   },
 
@@ -65,15 +68,56 @@ const theme = extendTheme({
     Button: {
       variants: {
         solid: (props: StyleFunctionProps) => ({
-          bg: mode("green.500", "green.300")(props),
-          color: mode("white", "gray.900")(props),
-          textTransform: "uppercase",
+          borderRadius: "full",
+          bg: mode("green.500", "green.500")(props),
+          color: "white",
           fontWeight: "bold",
           _hover: {
             bg: mode("green.400", "green.400")(props),
           },
           _active: {
-            bg: mode("green.300", "green.500")(props),
+            bg: mode("green.600", "green.600")(props),
+          },
+        }),
+        outline: (props: StyleFunctionProps) => ({
+          borderRadius: "full",
+          bg: mode("white", "gray.800")(props),
+          color: mode("green.500", "white")(props),
+          borderColor: mode("green.500", "gray.800")(props),
+          fontWeight: "bold",
+          _hover: {
+            bg: mode("green.50", "gray.700")(props),
+            borderColor: mode("green.400", "gray.700")(props),
+            color: mode("green.400", "white")(props),
+          },
+          _active: {
+            bg: mode("green.100", "gray.800")(props),
+            borderColor: mode("green.600", "gray.800")(props),
+            color: mode("green.600", "white")(props),
+          },
+        }),
+        ghost: (props: StyleFunctionProps) => ({
+          borderRadius: "full",
+          bg: mode("white", "gray.800")(props),
+          color: mode("green.500", "white")(props),
+          fontWeight: "bold",
+          _hover: {
+            bg: mode("green.50", "gray.700")(props),
+            color: mode("green.400", "white")(props),
+          },
+          _active: {
+            bg: mode("green.100", "gray.800")(props),
+            color: mode("green.600", "white")(props),
+          },
+        }),
+        link: (props: StyleFunctionProps) => ({
+          color: mode("green.500", "white")(props),
+          fontWeight: "bold",
+          _hover: {
+            color: mode("green.400", "white")(props),
+          },
+          _active: {
+            color: mode("green.600", "white")(props),
           },
         }),
       },
