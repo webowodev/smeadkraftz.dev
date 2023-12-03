@@ -1,13 +1,11 @@
-import { fetchPages } from "../../data/notionAdapter";
-import { ICategories } from "@/lib/entities/category";
+import { fetchPages } from "../data/notionAdapter";
+import { IMenus } from "@/lib/entities/menu";
 import BaseResponse from "@/common/baseResponse";
 
-export default async function getCategories(): Promise<
-  BaseResponse<ICategories>
-> {
+export default async function getMenus(): Promise<BaseResponse<IMenus>> {
   try {
     const { results } = await fetchPages(
-      process.env.NOTION_CATEGORIES_DATABASE_ID as string,
+      process.env.NOTION_MENUS_DATABASE_ID as string,
       {
         filter: {
           property: "Status",
@@ -28,7 +26,9 @@ export default async function getCategories(): Promise<
       data: results.map((page) => ({
         id: page.id,
         // @ts-ignore
-        name: page.properties.Name.title[0].plain_text,
+        name: page.properties["Name"].title[0].plain_text,
+        // @ts-ignore
+        url: page.properties["URL"].rich_text[0].plain_text,
       })),
       error: null,
     };

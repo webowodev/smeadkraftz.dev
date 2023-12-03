@@ -16,14 +16,14 @@ import {
 import AppContainer from "../../atoms/appContainer";
 import ToggleColorModeButton from "@/components/atoms/toggleColorModeButton";
 import Logo from "@/components/atoms/logo";
-import { useCategory } from "@/providers/categoryProvider";
+import { useBase } from "@/providers/baseProvider";
 import { Link } from "@chakra-ui/next-js";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 export default function NavigationHeader() {
   const { colorMode } = useColorMode();
 
-  const { categories } = useCategory();
+  const { menus } = useBase();
 
   return (
     <Box
@@ -52,15 +52,15 @@ export default function NavigationHeader() {
             spacing={8}
             display={{ base: "none", md: "flex" }}
           >
-            {categories?.map((category) => (
+            {menus?.map((menu) => (
               <Link
-                href={"/" + category.name}
-                key={category.id}
+                href={menu.url}
+                key={menu.id}
                 fontFamily={"mono"}
                 fontWeight="bold"
                 textTransform={"capitalize"}
               >
-                {category.name}
+                {menu.name}
               </Link>
             ))}
           </Stack>
@@ -81,16 +81,16 @@ export default function NavigationHeader() {
                     <Icon as={HamburgerIcon} />
                   </MenuButton>
                   <MenuList alignItems={"center"}>
-                    {categories?.map((category) => (
+                    {menus?.map((menu) => (
                       <MenuItem
                         as={Link}
-                        href={"/" + category.name}
-                        key={category.id}
+                        href={menu.url}
+                        key={menu.id}
                         fontFamily={"mono"}
                         fontWeight="bold"
                         textTransform={"capitalize"}
                       >
-                        {category.name}
+                        {menu.name}
                       </MenuItem>
                     ))}
                   </MenuList>

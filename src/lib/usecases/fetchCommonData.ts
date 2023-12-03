@@ -1,7 +1,7 @@
-import getCategories from "./category/getCategories";
+import getMenus from "./getMenus";
 
 export default async function fetchCommonData() {
-  const { data: categories } = await getCategories();
+  const { data: menus } = await getMenus();
 
-  return { categories };
+  return { menus };
 }

@@ -7,18 +7,18 @@ import AppContainer from "@/components/atoms/appContainer";
 import ContentWithTitle from "@/components/molecules/contentWithTitle";
 import { SocialIcon } from "react-social-icons";
 import { GetServerSideProps } from "next";
-import { ICategories } from "@/lib/entities/category";
+import { IMenus } from "@/lib/entities/menu";
 import fetchCommonData from "@/lib/usecases/fetchCommonData";
 
 export const getServerSideProps = (async () => {
-  const { categories } = await fetchCommonData();
+  const { menus } = await fetchCommonData();
   return {
     props: {
-      categories: categories || [],
+      menus: menus || [],
     },
   };
 }) satisfies GetServerSideProps<{
-  categories: ICategories;
+  menus: IMenus;
 }>;
 
 export default function Home() {
