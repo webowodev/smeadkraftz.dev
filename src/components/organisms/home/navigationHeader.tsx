@@ -1,11 +1,29 @@
 "use client";
-import { Box, Flex, Stack, Text, useColorMode } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Icon,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Show,
+  Stack,
+  Text,
+  useColorMode,
+} from "@chakra-ui/react";
 import AppContainer from "../../atoms/appContainer";
 import ToggleColorModeButton from "@/components/atoms/toggleColorModeButton";
 import Logo from "@/components/atoms/logo";
+import { useCategory } from "@/providers/categoryProvider";
+import { Link } from "@chakra-ui/next-js";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 export default function NavigationHeader() {
   const { colorMode } = useColorMode();
+
+  const { categories } = useCategory();
 
   return (
     <Box
@@ -27,42 +45,57 @@ export default function NavigationHeader() {
             </Text>
           </Stack>
 
+          {/* Start navigation menu */}
+          {/* only show navigation menu on desktop */}
+          <Stack
+            direction={"row"}
+            spacing={8}
+            display={{ base: "none", md: "flex" }}
+          >
+            {categories?.map((category) => (
+              <Link
+                href={"/" + category.name}
+                key={category.id}
+                fontFamily={"mono"}
+                fontWeight="bold"
+                textTransform={"capitalize"}
+              >
+                {category.name}
+              </Link>
+            ))}
+          </Stack>
+          {/* End navigation menu */}
+
           <Flex alignItems={"center"}>
-            <Stack direction={"row"} spacing={7}>
+            <Stack alignItems="center" direction={"row"} spacing={4}>
               <ToggleColorModeButton />
 
-              {/* <Menu>
-                <MenuButton
-                  as={Button}
-                  rounded={"full"}
-                  variant={"link"}
-                  cursor={"pointer"}
-                  minW={0}
-                >
-                  <Avatar
-                    size={"sm"}
-                    src={"https://avatars.dicebear.com/api/male/username.svg"}
-                  />
-                </MenuButton>
-                <MenuList alignItems={"center"}>
-                  <br />
-                  <Center>
-                    <Avatar
-                      size={"2xl"}
-                      src={"https://avatars.dicebear.com/api/male/username.svg"}
-                    />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
-                </MenuList>
-              </Menu> */}
+              <Show breakpoint="(max-width: 767px)">
+                <Menu>
+                  <MenuButton
+                    as={Button}
+                    rounded={"full"}
+                    cursor={"pointer"}
+                    minW={0}
+                  >
+                    <Icon as={HamburgerIcon} />
+                  </MenuButton>
+                  <MenuList alignItems={"center"}>
+                    {categories?.map((category) => (
+                      <MenuItem
+                        as={Link}
+                        href={"/" + category.name}
+                        key={category.id}
+                        fontFamily={"mono"}
+                        fontWeight="bold"
+                        textTransform={"capitalize"}
+                      >
+                        {category.name}
+                      </MenuItem>
+                    ))}
+                  </MenuList>
+                </Menu>
+              </Show>
             </Stack>
           </Flex>
         </Flex>
