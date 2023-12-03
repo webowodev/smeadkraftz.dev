@@ -10,7 +10,11 @@ import { GetServerSideProps } from "next";
 import { IMenus } from "@/lib/entities/menu";
 import fetchCommonData from "@/lib/usecases/fetchCommonData";
 
-export const getServerSideProps = (async () => {
+export const getServerSideProps = (async (context) => {
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
   const { menus } = await fetchCommonData();
   return {
     props: {

@@ -16,6 +16,10 @@ import BlocksRenderer from "@/components/molecules/blocksRenderer";
 export const getServerSideProps = (async (
   context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
 ) => {
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
   const category: string = context.params?.category as string;
 
   // fetch data
