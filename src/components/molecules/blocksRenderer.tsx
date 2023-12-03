@@ -2,8 +2,6 @@ import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { NotionRenderer } from "@notion-render/client";
 import notion from "@/lib/data/notionAdapter";
 import { useEffect, useState } from "react";
-import hljsPlugin from "@notion-render/hljs-plugin";
-import bookmarkPlugin from "@notion-render/bookmark-plugin";
 
 export default function BlocksRenderer({
   data,
@@ -14,9 +12,6 @@ export default function BlocksRenderer({
   const renderer = new NotionRenderer({
     client: notion,
   });
-
-  renderer.use(hljsPlugin({}));
-  renderer.use(bookmarkPlugin({}));
 
   useEffect(() => {
     renderer.render(...data).then((html) => {
