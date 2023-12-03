@@ -36,7 +36,13 @@ export default function NavigationHeader() {
     >
       <AppContainer>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Stack alignItems={"start"} spacing={2} direction={"row"}>
+          <Stack
+            as={Link}
+            href="/"
+            alignItems={"start"}
+            spacing={2}
+            direction={"row"}
+          >
             <Box>
               <Logo color={colorMode === "light" ? "black" : "white"} />
             </Box>
