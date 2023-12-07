@@ -1,7 +1,7 @@
 import Head from "next/head";
 import BaseLayout from "@/layouts/baseLayout";
 import HelloSection from "@/components/organisms/home/helloSection";
-import { Box, Button, Link, Stack, Text } from "@chakra-ui/react";
+import { Box, Link, Stack, Text } from "@chakra-ui/react";
 import Introduce from "@/components/molecules/introduce";
 import AppContainer from "@/components/atoms/appContainer";
 import ContentWithTitle from "@/components/molecules/contentWithTitle";
@@ -60,7 +60,6 @@ export default function Home() {
                 Node.js, Supabase, Flutter and many more – the ingredients for
                 some pretty cool digital experiences.
               </Text>
-              <Button>My Portfolio</Button>
             </ContentWithTitle>
             {/* End about section */}
 

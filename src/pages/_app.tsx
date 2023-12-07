@@ -3,6 +3,7 @@ import BaseProvider from "@/providers/baseProvider";
 import "@/styles/globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -10,6 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <BaseProvider menus={pageProps.menus}>
         <Component {...pageProps} />
       </BaseProvider>
+      <SpeedInsights />
     </ChakraProvider>
   );
 }

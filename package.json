@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.11.0",
     "@notion-render/client": "^0.0.2",
     "@notionhq/client": "^2.2.13",
+    "@vercel/speed-insights": "^1.0.0",
     "framer-motion": "^10.16.5",
     "next": "14.0.3",
     "react": "^18",
