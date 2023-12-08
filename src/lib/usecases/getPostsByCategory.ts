@@ -1,10 +1,12 @@
 import { fetchPages } from "../data/notionAdapter";
-import { IMenus } from "@/lib/entities/menu";
 import BaseResponse from "@/common/baseResponse";
+import { IPosts } from "../entities/post";
+import { get } from "lodash";
+import { getCoverUrl, getPlainTextProperty } from "@/common/getProperty";
 
 export default async function getPostsByCategory(
   category: string
-): Promise<BaseResponse<IMenus>> {
+): Promise<BaseResponse<IPosts>> {
   try {
     const { results } = await fetchPages(
       process.env.NOTION_POSTS_DATABASE_ID as string,
@@ -26,14 +28,19 @@ export default async function getPostsByCategory(
       }
     );
 
+    console.info("getPostsByCategory:", results[0]);
+
     return {
-      data: results.map((page) => ({
-        id: page.id,
-        // @ts-ignore
-        name: page.properties["Name"].title[0].plain_text,
-        // @ts-ignore
-        slug: page.properties["Slug"].rich_text[0].plain_text,
-      })),
+      data: results.map((page) => {
+        return {
+          id: page.id,
+          title: getPlainTextProperty(page, "Name"),
+          slug: getPlainTextProperty(page, "Slug"),
+          date: get(page, "created_time", ""),
+          description: getPlainTextProperty(page, "Description"),
+          imageUrl: getCoverUrl(page),
+        };
+      }),
       error: null,
     };
   } catch (e: unknown) {

@@ -38,8 +38,9 @@ export default async function getMenuBySlug(
           slug: result.properties["Slug"].rich_text[0].plain_text,
           // @ts-ignore
           description: result.properties["Description"].rich_text[0].plain_text,
-          // @ts-ignore
-          imageUrl: result?.cover?.external?.url,
+          imageUrl:
+            // @ts-ignore
+            result && result?.cover ? result?.cover?.external?.url : null,
         }
       : undefined;
 

@@ -1,9 +1,13 @@
+import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+
 export type IPost = {
   id: string;
   title: string;
   slug: string;
   date: string;
-  content: string;
   description: string;
-  coverImage?: string;
+  imageUrl?: string | null;
+  blocks?: BlockObjectResponse[];
 };
+
+export type IPosts = IPost[];
