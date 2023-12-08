@@ -42,7 +42,7 @@ export default function Home() {
             {/* Start about section */}
             <ContentWithTitle title={"About"}>
               <Text>
-                I currently working as VP of Engineering at{" "}
+                Currently working as VP of Engineering at{" "}
                 <Link
                   href="https://karyakarsa.com"
                   color={"red.500"}

@@ -3,10 +3,7 @@ import { Box } from "@chakra-ui/react";
 import { TypeAnimation } from "react-type-animation";
 
 export default function HelloSection() {
-  const sequence = [
-    1000,
-    "Hello, I'm a Full Stack Developer based in Jakarta:",
-  ];
+  const sequence = [1000, "Hello, I'm a Software Engineer based in Jakarta:"];
 
   return (
     <Box fontSize={"sm"}>
