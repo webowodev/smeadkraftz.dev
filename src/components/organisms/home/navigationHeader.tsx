@@ -79,32 +79,35 @@ export default function NavigationHeader() {
             <Stack alignItems="center" direction={"row"} spacing={4}>
               <ToggleColorModeButton />
 
-              <Show breakpoint="(max-width: 767px)">
-                <Menu>
-                  <MenuButton
-                    as={Button}
-                    rounded={"full"}
-                    cursor={"pointer"}
-                    minW={0}
-                  >
-                    <Icon as={HamburgerIcon} />
-                  </MenuButton>
-                  <MenuList alignItems={"center"}>
-                    {menus?.map((menu) => (
-                      <MenuItem
-                        as={Link}
-                        href={menu.slug}
-                        key={menu.id}
-                        fontFamily={"mono"}
-                        fontWeight="bold"
-                        textTransform={"capitalize"}
-                      >
-                        {menu.name}
-                      </MenuItem>
-                    ))}
-                  </MenuList>
-                </Menu>
-              </Show>
+              {/* only show menu button on mobile */}
+              {menus?.length ? (
+                <Show breakpoint="(max-width: 767px)">
+                  <Menu>
+                    <MenuButton
+                      as={Button}
+                      rounded={"full"}
+                      cursor={"pointer"}
+                      minW={0}
+                    >
+                      <Icon as={HamburgerIcon} />
+                    </MenuButton>
+                    <MenuList alignItems={"center"}>
+                      {menus?.map((menu) => (
+                        <MenuItem
+                          as={Link}
+                          href={menu.slug}
+                          key={menu.id}
+                          fontFamily={"mono"}
+                          fontWeight="bold"
+                          textTransform={"capitalize"}
+                        >
+                          {menu.name}
+                        </MenuItem>
+                      ))}
+                    </MenuList>
+                  </Menu>
+                </Show>
+              ) : null}
             </Stack>
           </Flex>
         </Flex>
