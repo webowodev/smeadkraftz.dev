@@ -125,6 +125,10 @@ export default function Home() {
             <ContentWithTitle title="Let's Connect!">
               <Stack direction={"row"}>
                 <SocialIcon
+                  url="https://www.linkedin.com/in/dimaswibowo"
+                  target="_blank"
+                />
+                <SocialIcon
                   url="https://github.com/daemswibowo"
                   target="_blank"
                 />
