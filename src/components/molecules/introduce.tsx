@@ -15,7 +15,7 @@ export default function Introduce() {
       />
       <Box textAlign={"center"}>
         <Heading>Dimas Wibowo</Heading>
-        <Text>Full stack developer (Front End / Back End / Mobile)</Text>
+        <Text>Software Engineer (Front End / Back End / Mobile)</Text>
       </Box>
     </Stack>
   );

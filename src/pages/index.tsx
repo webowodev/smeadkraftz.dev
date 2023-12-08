@@ -42,8 +42,7 @@ export default function Home() {
             {/* Start about section */}
             <ContentWithTitle title={"About"}>
               <Text>
-                👋 Hello! I am a Full Stack Developer with over 8 years of
-                experience, currently working as VP of Engineering at{" "}
+                I currently working as VP of Engineering at{" "}
                 <Link
                   href="https://karyakarsa.com"
                   color={"red.500"}
@@ -51,9 +50,10 @@ export default function Home() {
                   target={"_blank"}
                 >
                   KaryaKarsa
-                </Link>
-                , and I really enjoy bringing ideas to life through responsive
-                web applications and mobile apps. My toolkit includes React,
+                </Link>{" "}
+                with over 8 years of experience as Software Engineer, and I
+                really enjoy bringing ideas to life through responsive web
+                applications and mobile apps. My toolkit includes React,
                 Node.js, Supabase, Flutter and many more – the ingredients for
                 some pretty cool digital experiences.
               </Text>
