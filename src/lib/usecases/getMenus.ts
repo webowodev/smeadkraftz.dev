@@ -28,7 +28,7 @@ export default async function getMenus(): Promise<BaseResponse<IMenus>> {
         // @ts-ignore
         name: page.properties["Name"].title[0].plain_text,
         // @ts-ignore
-        url: page.properties["URL"].rich_text[0].plain_text,
+        slug: page.properties["Slug"].rich_text[0].plain_text,
       })),
       error: null,
     };

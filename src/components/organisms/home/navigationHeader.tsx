@@ -27,11 +27,14 @@ export default function NavigationHeader() {
 
   return (
     <Box
-      bg={colorMode === "light" ? "whiteAlpha.100" : "blackAlpha.100"}
+      bg={colorMode === "light" ? "whiteAlpha.100" : "blackAlpha.300"}
       w="100%"
       position="fixed"
       as="nav"
-      style={{ backdropFilter: "blur(4px)", WebkitBackdropFilter: "blur(4px)" }}
+      style={{
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(4px)",
+      }}
       zIndex={1}
     >
       <AppContainer>
@@ -60,7 +63,7 @@ export default function NavigationHeader() {
           >
             {menus?.map((menu) => (
               <Link
-                href={menu.url}
+                href={menu.slug}
                 key={menu.id}
                 fontFamily={"mono"}
                 fontWeight="bold"
@@ -90,7 +93,7 @@ export default function NavigationHeader() {
                     {menus?.map((menu) => (
                       <MenuItem
                         as={Link}
-                        href={menu.url}
+                        href={menu.slug}
                         key={menu.id}
                         fontFamily={"mono"}
                         fontWeight="bold"

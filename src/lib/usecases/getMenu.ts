@@ -3,8 +3,8 @@ import BaseResponse from "@/common/baseResponse";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { IMenu } from "../entities/menu";
 
-export default async function getMenuByName(
-  name: string
+export default async function getMenuBySlug(
+  slug: string
 ): Promise<BaseResponse<IMenu | undefined>> {
   try {
     const { results } = await fetchPages(
@@ -17,19 +17,13 @@ export default async function getMenuByName(
           },
           and: [
             {
-              property: "Name",
+              property: "Slug",
               rich_text: {
-                contains: name,
+                equals: slug,
               },
             },
           ],
         },
-        sorts: [
-          {
-            direction: "ascending",
-            property: "Position",
-          },
-        ],
       }
     );
 
@@ -41,9 +35,11 @@ export default async function getMenuByName(
           // @ts-ignore
           name: result.properties["Name"].title[0].plain_text,
           // @ts-ignore
-          url: result.properties["URL"].rich_text[0].plain_text,
+          slug: result.properties["Slug"].rich_text[0].plain_text,
           // @ts-ignore
-          description: result.properties["URL"].rich_text[0].plain_text,
+          description: result.properties["Description"].rich_text[0].plain_text,
+          // @ts-ignore
+          imageUrl: result?.cover?.external?.url,
         }
       : undefined;
 
@@ -53,6 +49,8 @@ export default async function getMenuByName(
 
       data.blocks = blocks;
     }
+
+    console.info("getMenuBySlug:", slug, data);
 
     return {
       data: data,
