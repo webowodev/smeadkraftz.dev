@@ -15,6 +15,7 @@
     "@chakra-ui/theme-tools": "^2.1.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@next/bundle-analyzer": "^14.0.4",
     "@notion-render/client": "^0.0.2",
     "@notionhq/client": "^2.2.13",
     "@vercel/speed-insights": "^1.0.0",
