@@ -8,6 +8,7 @@ import { SocialIcon } from "react-social-icons";
 import { GetServerSideProps } from "next";
 import { IMenus } from "@/lib/entities/menu";
 import fetchCommonData from "@/lib/usecases/fetchCommonData";
+import Head from "next/head";
 
 export const getServerSideProps = (async (context) => {
   context.res.setHeader(
@@ -26,7 +27,10 @@ export const getServerSideProps = (async (context) => {
 
 export default function Home() {
   return (
-    <BaseLayout title="Home" description="Full stack developer">
+    <BaseLayout description="Full stack developer">
+      <Head>
+        <title>Home - Dimas Wibowo</title>
+      </Head>
       <main>
         <AppContainer pt={24} pb={12}>
           <Stack spacing={6}>

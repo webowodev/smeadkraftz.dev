@@ -52,7 +52,7 @@ export default function Category({
   return (
     <BaseLayout description={category.description}>
       <Head>
-        <title>{category.name}</title>
+        <title>{category.name} - Dimas Wibowo</title>
       </Head>
       <main>
         {category?.imageUrl ? (
