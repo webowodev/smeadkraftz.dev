@@ -42,7 +42,7 @@ export default function Home() {
             {/* Start about section */}
             <ContentWithTitle title={"About"}>
               <Text>
-                👋 Hello! I am a Full Stack Developer with over 5 years of
+                👋 Hello! I am a Full Stack Developer with over 8 years of
                 experience, currently working as VP of Engineering at{" "}
                 <Link
                   href="https://karyakarsa.com"
