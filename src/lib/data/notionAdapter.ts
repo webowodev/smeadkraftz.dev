@@ -20,18 +20,33 @@ export const fetchPages = (
   });
 };
 
-export const fetchPageBySlug = (slug: string) => {
-  return notion.databases
+export const fetchPageBySlug = async (
+  databaseId: string,
+  slug: string
+): Promise<PageObjectResponse | undefined> => {
+  const result = notion.databases
     .query({
-      database_id: process.env.NOTION_DATABASE_ID!,
+      database_id: databaseId,
       filter: {
         property: "Slug",
         rich_text: {
           equals: slug,
         },
+        and: [
+          {
+            property: "Status",
+            status: {
+              equals: "Published",
+            },
+          },
+        ],
       },
     })
-    .then((res) => res.results[0] as PageObjectResponse | undefined);
+    .then((res) => {
+      return res.results[0] as PageObjectResponse | undefined;
+    });
+
+  return result;
 };
 
 export const fetchPageBlocks = (pageId: string) => {
