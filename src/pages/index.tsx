@@ -8,7 +8,6 @@ import { SocialIcon } from "react-social-icons";
 import { GetServerSideProps } from "next";
 import { IMenus } from "@/lib/entities/menu";
 import fetchCommonData from "@/lib/usecases/fetchCommonData";
-import Head from "next/head";
 import React from "react";
 
 export const getServerSideProps = (async (context) => {
@@ -28,10 +27,10 @@ export const getServerSideProps = (async (context) => {
 
 export default function Home() {
   return (
-    <BaseLayout description="Full stack developer">
-      <Head>
-        <title>Home - Dimas Wibowo</title>
-      </Head>
+    <BaseLayout
+      title="Home"
+      description="Currently working as VP of Engineering at KaryaKarsa with over 8 years of experience as Software Engineer, and I really enjoy bringing ideas to life through responsive web applications and mobile apps. My toolkit includes React, Node.js, Supabase, Flutter and many more – the ingredients for some pretty cool digital experiences."
+    >
       <main>
         <AppContainer pt={24} pb={12}>
           <Stack spacing={6}>

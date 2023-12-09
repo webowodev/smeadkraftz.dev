@@ -1,7 +1,7 @@
 import { Stack, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useMemo } from "react";
 import { motion } from "framer-motion";
 
 export default function BaseLayout({
@@ -37,6 +37,11 @@ export default function BaseLayout({
     },
   };
 
+  const pageTitle: string = useMemo<string>(
+    () => `${title} - Dimas Wibowo`,
+    [title]
+  );
+
   return (
     <motion.div
       initial={"hidden"}
@@ -48,6 +53,7 @@ export default function BaseLayout({
     >
       <>
         <Head>
+          <title>{pageTitle}</title>
           {description ? (
             <meta name="description" content={description} />
           ) : null}
@@ -77,7 +83,7 @@ export default function BaseLayout({
           <meta name="theme-color" content="#181a20" />
 
           {/* Open Graph Meta Tags for Facebook and LinkedIn */}
-          {title ? <meta property="og:title" content={title} /> : null}
+          <meta property="og:title" content={pageTitle} />
           {description ? (
             <meta property="og:description" content={description} />
           ) : null}
@@ -92,7 +98,7 @@ export default function BaseLayout({
 
           {/* Twitter Card Meta Tags */}
           <meta name="twitter:card" content="summary_large_image" />
-          {title ? <meta name="twitter:title" content={title} /> : null}
+          <meta name="twitter:title" content={pageTitle} />
           {description ? (
             <meta name="twitter:description" content={description} />
           ) : null}

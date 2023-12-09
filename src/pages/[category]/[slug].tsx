@@ -12,7 +12,6 @@ import {
   InferGetServerSidePropsType,
   PreviewData,
 } from "next";
-import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
 
 export const getServerSideProps = (async (
@@ -51,11 +50,11 @@ export default function PostDetailPage({
   post,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <BaseLayout>
-      <Head>
-        <title>{post.title}</title>
-        <meta name="description" content={post.description} />
-      </Head>
+    <BaseLayout
+      title={post.title}
+      description={post.description}
+      imageUrl={post.imageUrl ?? undefined}
+    >
       {post?.imageUrl ? (
         <Box
           flex={1}

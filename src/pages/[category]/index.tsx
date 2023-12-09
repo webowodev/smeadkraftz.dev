@@ -11,7 +11,6 @@ import fetchCommonData from "@/lib/usecases/fetchCommonData";
 import { ParsedUrlQuery } from "querystring";
 import getMenuBySlug from "@/lib/usecases/getMenu";
 import BlocksRenderer from "@/components/molecules/blocksRenderer";
-import Head from "next/head";
 import {
   Box,
   Card,
@@ -67,10 +66,7 @@ export default function Category({
   posts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <BaseLayout description={category.description}>
-      <Head>
-        <title>{category.name} - Dimas Wibowo</title>
-      </Head>
+    <BaseLayout title={category.name} description={category.description}>
       <main>
         {category && category?.imageUrl ? (
           <Box
