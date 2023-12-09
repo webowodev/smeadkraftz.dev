@@ -2,6 +2,7 @@ import { fetchPageBlocks, fetchPages } from "../data/notionAdapter";
 import BaseResponse from "@/common/baseResponse";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { IMenu } from "../entities/menu";
+import { getCoverUrl, getPlainTextProperty } from "@/common/getProperty";
 
 export default async function getMenuBySlug(
   slug: string
@@ -32,15 +33,11 @@ export default async function getMenuBySlug(
     let data: IMenu | undefined = result
       ? {
           id: result.id,
-          // @ts-ignore
-          name: result.properties["Name"].title[0].plain_text,
-          // @ts-ignore
-          slug: result.properties["Slug"].rich_text[0].plain_text,
-          // @ts-ignore
-          description: result.properties["Description"].rich_text[0].plain_text,
-          imageUrl:
-            // @ts-ignore
-            result && result?.cover ? result?.cover?.external?.url : null,
+          name: getPlainTextProperty(result, "Name"),
+          slug: getPlainTextProperty(result, "Slug"),
+          description: getPlainTextProperty(result, "Description"),
+          imageUrl: getCoverUrl(result),
+          url: getPlainTextProperty(result, "URL"),
         }
       : undefined;
 

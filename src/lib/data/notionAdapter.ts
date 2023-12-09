@@ -24,19 +24,20 @@ export const fetchPageBySlug = async (
   databaseId: string,
   slug: string
 ): Promise<PageObjectResponse | undefined> => {
+  console.log("fetchPageBySlug", databaseId, slug);
   const result = notion.databases
     .query({
       database_id: databaseId,
       filter: {
-        property: "Slug",
-        rich_text: {
-          equals: slug,
+        property: "Status",
+        status: {
+          equals: "Published",
         },
         and: [
           {
-            property: "Status",
-            status: {
-              equals: "Published",
+            property: "Slug",
+            rich_text: {
+              equals: slug,
             },
           },
         ],

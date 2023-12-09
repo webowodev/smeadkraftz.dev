@@ -63,7 +63,7 @@ export default function NavigationHeader() {
           >
             {menus?.map((menu) => (
               <Link
-                href={menu.slug}
+                href={menu.url}
                 key={menu.id}
                 fontFamily={"mono"}
                 fontWeight="bold"

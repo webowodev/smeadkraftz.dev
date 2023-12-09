@@ -4,8 +4,10 @@ export type IMenu = {
   id: string;
   name: string;
   slug: string;
+  url: string;
   description?: string;
   imageUrl?: string;
+
   blocks?: BlockObjectResponse[];
 };
 

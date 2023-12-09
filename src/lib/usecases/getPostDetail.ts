@@ -12,8 +12,6 @@ export default async function getPostDetail(
       slug
     );
 
-    console.log("post detail:", result);
-
     if (!result) {
       return {
         data: null,

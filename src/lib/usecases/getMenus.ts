@@ -1,6 +1,7 @@
 import { fetchPages } from "../data/notionAdapter";
 import { IMenus } from "@/lib/entities/menu";
 import BaseResponse from "@/common/baseResponse";
+import { getPlainTextProperty } from "@/common/getProperty";
 
 export default async function getMenus(): Promise<BaseResponse<IMenus>> {
   try {
@@ -25,10 +26,9 @@ export default async function getMenus(): Promise<BaseResponse<IMenus>> {
     return {
       data: results.map((page) => ({
         id: page.id,
-        // @ts-ignore
-        name: page.properties["Name"].title[0].plain_text,
-        // @ts-ignore
-        slug: page.properties["Slug"].rich_text[0].plain_text,
+        name: getPlainTextProperty(page, "Name"),
+        slug: getPlainTextProperty(page, "Slug"),
+        url: getPlainTextProperty(page, "URL"),
       })),
       error: null,
     };
