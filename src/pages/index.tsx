@@ -9,6 +9,7 @@ import { GetServerSideProps } from "next";
 import { IMenus } from "@/lib/entities/menu";
 import fetchCommonData from "@/lib/usecases/fetchCommonData";
 import Head from "next/head";
+import React from "react";
 
 export const getServerSideProps = (async (context) => {
   context.res.setHeader(
