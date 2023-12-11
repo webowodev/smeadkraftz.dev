@@ -45,6 +45,10 @@ export default function NavigationHeader() {
             alignItems={"start"}
             spacing={2}
             direction={"row"}
+            color={colorMode === "light" ? "black" : "white"}
+            _hover={{
+              color: colorMode === "light" ? "black" : "white",
+            }}
           >
             <Box>
               <Logo color={colorMode === "light" ? "black" : "white"} />
@@ -68,6 +72,11 @@ export default function NavigationHeader() {
                 fontFamily={"mono"}
                 fontWeight="bold"
                 textTransform={"capitalize"}
+                color={colorMode === "light" ? "black" : "white"}
+                _hover={{
+                  color: colorMode === "light" ? "black" : "white",
+                  textDecoration: "underline",
+                }}
               >
                 {menu.name}
               </Link>
@@ -98,6 +107,7 @@ export default function NavigationHeader() {
                           href={menu.slug}
                           key={menu.id}
                           fontFamily={"mono"}
+                          _active={{ bg: "none" }}
                           fontWeight="bold"
                           textTransform={"capitalize"}
                         >

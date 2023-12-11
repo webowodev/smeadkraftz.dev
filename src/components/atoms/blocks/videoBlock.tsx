@@ -6,5 +6,12 @@ export default function VideoBlock({
   url: string;
   captions?: string[];
 }) {
-  return <ReactPlayer width={"100%"} url={url} />;
+  return (
+    <ReactPlayer
+      width={"100%"}
+      url={url}
+      controls
+      style={{ marginBottom: "0.5rem", marginTop: "0.5rem" }}
+    />
+  );
 }

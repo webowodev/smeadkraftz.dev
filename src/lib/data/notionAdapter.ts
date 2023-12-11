@@ -51,9 +51,10 @@ export const fetchPageBySlug = async (
 };
 
 export const fetchPageBlocks = (pageId: string) => {
-  return notion.blocks.children
-    .list({ block_id: pageId })
-    .then((res) => res.results as BlockObjectResponse[]);
+  return notion.blocks.children.list({ block_id: pageId }).then((res) => {
+    console.log("fetchPageBlocks:", JSON.stringify(res.results));
+    return res.results as BlockObjectResponse[];
+  });
 };
 
 export default notion;

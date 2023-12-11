@@ -67,7 +67,9 @@ export default function PostDetailPage({
       ) : null}
       <AppContainer pt={post && post?.imageUrl ? 8 : 24} pb={12} minH="90vh">
         <Box as="article">
-          <Heading size={"xl"}>{post.title}</Heading>
+          <Heading size={"xl"} mb={"0.5rem"}>
+            {post.title}
+          </Heading>
 
           <BlocksRenderer data={post.blocks ?? []} />
         </Box>

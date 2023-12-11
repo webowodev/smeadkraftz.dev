@@ -1,8 +1,11 @@
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import HeadingBlock from "../atoms/blocks/headingBlock";
 import { get } from "lodash";
 import dynamic from "next/dynamic";
+import ParagraphBlock from "../atoms/blocks/paragraphBlock";
+import BulletedListBlock from "../atoms/blocks/bulletedListBlock";
+import NumberedListBlock from "../atoms/blocks/numberedListBlock";
 
 const VideoBlock = dynamic(() => import("../atoms/blocks/videoBlock"), {
   ssr: false,
@@ -33,12 +36,6 @@ export default function BlocksRenderer({
     }
 
     switch (block.type) {
-      case "paragraph":
-        return (
-          <Text key={block.id} as={"p"} mt={"1.25rem"}>
-            {getRichPlainText(block)}
-          </Text>
-        );
       case "video":
         return (
           <VideoBlock url={getExternalUrl("video", block)} key={block.id} />
@@ -51,6 +48,12 @@ export default function BlocksRenderer({
         );
       case "code":
         return <CodeBlock key={block.id} block={block} />;
+      case "paragraph":
+        return <ParagraphBlock key={block.id} block={block} />;
+      case "bulleted_list_item":
+        return <BulletedListBlock key={block.id} block={block} />;
+      case "numbered_list_item":
+        return <NumberedListBlock key={block.id} block={block} />;
       default:
         return null;
     }

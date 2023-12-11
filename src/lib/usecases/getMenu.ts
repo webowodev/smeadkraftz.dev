@@ -12,15 +12,15 @@ export default async function getMenuBySlug(
       process.env.NOTION_MENUS_DATABASE_ID as string,
       {
         filter: {
-          property: "Status",
-          status: {
-            equals: "Published",
+          property: "Slug",
+          rich_text: {
+            equals: slug,
           },
           and: [
             {
-              property: "Slug",
-              rich_text: {
-                equals: slug,
+              property: "Status",
+              status: {
+                equals: "Published",
               },
             },
           ],

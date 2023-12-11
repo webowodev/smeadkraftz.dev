@@ -65,6 +65,18 @@ const theme = extendTheme({
   },
 
   components: {
+    Link: {
+      baseStyle: (props: StyleFunctionProps) => ({
+        color: mode("green.500", "green.500")(props),
+        fontWeight: "bold",
+        _hover: {
+          color: mode("green.400", "green.400")(props),
+        },
+        _active: {
+          color: mode("green.600", "green.600")(props),
+        },
+      }),
+    },
     Button: {
       variants: {
         solid: (props: StyleFunctionProps) => ({

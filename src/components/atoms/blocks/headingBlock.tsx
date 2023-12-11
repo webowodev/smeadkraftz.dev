@@ -14,21 +14,21 @@ export default function HeadingBlock({
           as: "h1",
           size: "xl",
           mt: "1.25rem",
-          mb: "0.25rem",
+          mb: "1rem",
         };
       case "heading_2":
         return {
           as: "h2",
           size: "lg",
           mt: "1.25rem",
-          mb: "0.25rem",
+          mb: "1rem",
         };
       case "heading_3":
         return {
           as: "h3",
           size: "md",
           mt: "1.25rem",
-          mb: "0.25rem",
+          mb: "1rem",
         };
       default:
         return {};
