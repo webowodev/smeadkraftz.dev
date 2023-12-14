@@ -92,7 +92,7 @@ export default function Category({
             >
               {posts.map((post) => (
                 <GridItem key={post.id}>
-                  <Link href={`/posts/${post.slug}`}>
+                  <Link href={`/${category.slug}/${post.slug}`}>
                     <Card shadow={0} bgColor={"transparent"}>
                       <CardBody p={0} textAlign={"center"}>
                         {post.imageUrl ? (
