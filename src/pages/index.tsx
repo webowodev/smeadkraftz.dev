@@ -13,7 +13,7 @@ import React from "react";
 export const getServerSideProps = (async (context) => {
   context.res.setHeader(
     "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
+    "public, s-maxage=10, stale-while-revalidate=59",
   );
   const { menus } = await fetchCommonData();
   return {

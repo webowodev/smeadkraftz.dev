@@ -5,7 +5,7 @@ import { IMenu } from "../entities/menu";
 import { getCoverUrl, getPlainTextProperty } from "@/common/getProperty";
 
 export default async function getMenuBySlug(
-  slug: string
+  slug: string,
 ): Promise<BaseResponse<IMenu | undefined>> {
   try {
     const { results } = await fetchPages(
@@ -25,10 +25,17 @@ export default async function getMenuBySlug(
             },
           ],
         },
-      }
+      },
     );
 
     const result = results[0] as PageObjectResponse | undefined;
+
+    if (result && getPlainTextProperty(result, "Slug") !== slug) {
+      return {
+        data: null,
+        error: "Not found",
+      };
+    }
 
     let data: IMenu | undefined = result
       ? {

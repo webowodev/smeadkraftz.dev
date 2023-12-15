@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/baseLayout";
 import { IMenus } from "@/lib/entities/menu";
 import { IPost } from "@/lib/entities/post";
 import fetchCommonData from "@/lib/usecases/fetchCommonData";
+import getMenuBySlug from "@/lib/usecases/getMenu";
 import getPostDetail from "@/lib/usecases/getPostDetail";
 import { Box, Heading } from "@chakra-ui/react";
 import {
@@ -21,18 +22,22 @@ export const getServerSideProps = (async (
     "Cache-Control",
     "public, s-maxage=10, stale-while-revalidate=59"
   );
+  const category: string = context.params?.category as string;
   const slug: string = context.params?.slug as string;
+
+  console.log("category", category);
 
   // fetch data
   const results = await Promise.all([
     await getPostDetail(slug),
     await fetchCommonData(),
+    await getMenuBySlug(category),
   ]);
 
-  if (!results[0].data) {
-    return {
-      notFound: true,
-    };
+  let notFound = false;
+
+  if (!results[2].data || !results[0].data) {
+    notFound = true;
   }
 
   return {
@@ -40,9 +45,10 @@ export const getServerSideProps = (async (
       post: results[0].data ?? null,
       ...results[1],
     },
+    notFound,
   };
 }) satisfies GetServerSideProps<{
-  post: IPost;
+  post: IPost | null;
   menus: IMenus;
 }>;
 
@@ -51,15 +57,15 @@ export default function PostDetailPage({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <BaseLayout
-      title={post.title}
-      description={post.description}
-      imageUrl={post.imageUrl ?? undefined}
+      title={post?.title}
+      description={post?.description}
+      imageUrl={post?.imageUrl ?? undefined}
     >
       {post?.imageUrl ? (
         <Box
           flex={1}
           h={320}
-          bgImage={post.imageUrl}
+          bgImage={post?.imageUrl}
           bgPosition={"center"}
           bgRepeat={"no-repeat"}
           bgSize={"cover"}
@@ -68,10 +74,10 @@ export default function PostDetailPage({
       <AppContainer pt={post && post?.imageUrl ? 8 : 24} pb={12} minH="90vh">
         <Box as="article">
           <Heading size={"xl"} mb={"0.5rem"}>
-            {post.title}
+            {post?.title}
           </Heading>
 
-          <BlocksRenderer data={post.blocks ?? []} />
+          <BlocksRenderer data={post?.blocks ?? []} />
         </Box>
       </AppContainer>
     </BaseLayout>
