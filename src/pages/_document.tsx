@@ -8,6 +8,7 @@ export default function Document() {
       <Head>
         {(process.env.NODE_ENV === "development" ||
           process.env.VERCEL_ENV === "preview") && (
+          // add script for meticulous e2e testing
           // eslint-disable-next-line @next/next/no-sync-scripts
           <script
             data-project-id="UtSuUsNdn7ThhMjRlL7rlHTJT7HTJMpS2iQANUht"
