@@ -18,6 +18,7 @@
     "@next/bundle-analyzer": "^14.0.4",
     "@notion-render/client": "^0.0.2",
     "@notionhq/client": "^2.2.13",
+    "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.0",
     "framer-motion": "^10.16.5",
     "lodash": "^4.17.21",
