@@ -1,21 +1,30 @@
-import { Box, Heading, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Stack,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import Image from "next/image";
 
 export default function Introduce() {
+  const imageSize = useBreakpointValue({ base: 120, md: 150, lg: 200 }) ?? 200;
   return (
     <Stack alignItems={"center"} spacing={6}>
       <Image
-        src={"/images/profile-picture.jpeg"}
-        width={100}
-        height={100}
+        src={"/images/avatar.jpeg"}
+        width={imageSize}
+        height={imageSize}
         alt={"Dimas Wibowo"}
         style={{
-          borderRadius: 50,
+          borderRadius: imageSize / 2,
         }}
       />
       <Box textAlign={"center"}>
-        <Heading>Dimas Wibowo</Heading>
-        <Text>Software Engineer (Front End / Back End / Mobile)</Text>
+        <Heading fontSize={{ base: "4xl", md: "6xl" }}>Dimas Wibowo</Heading>
+        <Text fontSize={{ base: "md", md: "2xl" }}>
+          Full-Stack Software Engineer
+        </Text>
       </Box>
     </Stack>
   );

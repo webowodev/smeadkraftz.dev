@@ -1,8 +1,8 @@
-import { Stack, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { PropsWithChildren, useMemo } from "react";
 import { motion } from "framer-motion";
+import Footer from "@/components/organisms/footer";
 
 export default function BaseLayout({
   children,
@@ -15,7 +15,6 @@ export default function BaseLayout({
   imageUrl?: string;
 }>) {
   const router = useRouter();
-  const year = new Date().getFullYear();
 
   const url: string = process.env.NEXT_PUBLIC_BASE_URL + router.asPath;
 
@@ -113,9 +112,7 @@ export default function BaseLayout({
           <meta name="twitter:creator" content="@daemswibowo" />
         </Head>
         {children}
-        <Stack as="footer" alignItems={"center"} p={4} color={"gray.300"}>
-          <Text>&copy; {year} Dimas Wibowo. All rights reserved</Text>
-        </Stack>
+        <Footer />
       </>
     </motion.div>
   );

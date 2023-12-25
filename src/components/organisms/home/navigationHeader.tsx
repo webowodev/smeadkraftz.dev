@@ -2,6 +2,7 @@
 import {
   Box,
   Button,
+  Container,
   Flex,
   Icon,
   Menu,
@@ -13,7 +14,6 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
-import AppContainer from "../../atoms/appContainer";
 import ToggleColorModeButton from "@/components/atoms/toggleColorModeButton";
 import Logo from "@/components/atoms/logo";
 import { useBase } from "@/providers/baseProvider";
@@ -37,7 +37,7 @@ export default function NavigationHeader() {
       }}
       zIndex={1}
     >
-      <AppContainer>
+      <Container maxW="container.2xl" px={{ base: 5, lg: 8, xl: 12 }}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Stack
             as={Link}
@@ -121,7 +121,7 @@ export default function NavigationHeader() {
             </Stack>
           </Flex>
         </Flex>
-      </AppContainer>
+      </Container>
     </Box>
   );
 }

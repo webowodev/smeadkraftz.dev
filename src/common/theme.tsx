@@ -1,5 +1,6 @@
 import { extendTheme, ThemeConfig } from "@chakra-ui/react";
 import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
+import cardTheme from "./styles/card";
 
 const config: ThemeConfig = {
   initialColorMode: "light",
@@ -22,23 +23,23 @@ const theme = extendTheme({
   styles,
   colors: {
     gray: {
-      "50": "#e8e8e9	",
+      "50": "#e8e8e9",
       "100": "#d1d1d2",
       "200": "#bababc",
       "300": "#a3a3a6",
-      "400": "#8c8d90",
-      "500": "#747679",
-      "600": "#5d5f63",
-      "700": "#46484d",
-      "800": "#2f3136",
+      "400": "#8f9093",
+      "500": "#75767a",
+      "600": "#5c5d62",
+      "700": "#44454b",
+      "800": "#2D3035",
       "900": "#181a20",
     },
     green: {
-      "50": "#EBF9F3",
-      "100": "#ccefe0",
-      "200": "#99dfc2",
-      "300": "#66cfa3",
-      "400": "#33bf85",
+      "50": "#a7ddb9",
+      "100": "#90d4a8",
+      "200": "#78cb97",
+      "300": "#5ec287",
+      "400": "#3fb876",
       "500": "#00AF66",
       "600": "#008c52",
       "700": "#007a47",
@@ -77,35 +78,38 @@ const theme = extendTheme({
         },
       }),
     },
+    Card: cardTheme,
     Button: {
       variants: {
         solid: (props: StyleFunctionProps) => ({
           borderRadius: "full",
-          bg: mode("green.500", "green.500")(props),
-          color: "white",
+          bg: mode("green.500", "green.100")(props),
+          color: mode("white", "black")(props),
           fontWeight: "bold",
           _hover: {
-            bg: mode("green.400", "green.400")(props),
+            bg: mode("green.400", "green.300")(props),
           },
           _active: {
-            bg: mode("green.600", "green.600")(props),
+            bg: mode("green.600", "green.400")(props),
           },
         }),
         outline: (props: StyleFunctionProps) => ({
           borderRadius: "full",
-          bg: mode("white", "gray.800")(props),
-          color: mode("green.500", "white")(props),
-          borderColor: mode("green.500", "gray.800")(props),
+          bg: mode("white", "transparent")(props),
+          color: mode("green.500", "green.100")(props),
+          borderColor: mode("green.500", "green.100")(props),
           fontWeight: "bold",
           _hover: {
-            bg: mode("green.50", "gray.700")(props),
-            borderColor: mode("green.400", "gray.700")(props),
-            color: mode("green.400", "white")(props),
+            bg: mode("green.500", "green.100")(props),
+            borderColor: mode("green.500", "green.100")(props),
+            color: mode("white", "black")(props),
+            textDecoration: "none",
           },
           _active: {
-            bg: mode("green.100", "gray.800")(props),
+            bg: mode("green.600", "gray.800")(props),
             borderColor: mode("green.600", "gray.800")(props),
-            color: mode("green.600", "white")(props),
+            color: mode("white", "white")(props),
+            textDecoration: "none",
           },
         }),
         ghost: (props: StyleFunctionProps) => ({

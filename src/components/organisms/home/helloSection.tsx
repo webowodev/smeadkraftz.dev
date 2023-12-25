@@ -8,7 +8,10 @@ const TerminalContainer = dynamic(
 );
 
 export default function HelloSection() {
-  const sequence = [1000, "Hello, I'm a Software Engineer based in Jakarta:"];
+  const sequence = [
+    1000,
+    "Hello, I'm a full-stack software engineer based in Jakarta:",
+  ];
 
   return (
     <Box fontSize={"sm"}>
@@ -27,7 +30,7 @@ export default function HelloSection() {
 
         <TypeAnimation
           sequence={[
-            2000,
+            2500,
             "I build app with Laravel",
             2000,
             "I build app with React",
