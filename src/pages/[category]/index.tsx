@@ -1,5 +1,3 @@
-import BaseLayout from "@/layouts/baseLayout";
-import AppContainer from "@/components/atoms/appContainer";
 import {
   GetServerSideProps,
   GetServerSidePropsContext,
@@ -24,6 +22,7 @@ import getPostsByCategory from "@/lib/usecases/getPostsByCategory";
 import { IPosts } from "@/lib/entities/post";
 import Image from "@/components/atoms/image";
 import { Link } from "@chakra-ui/next-js";
+import ArticleLayout from "@/layouts/articleLayout";
 
 export const getServerSideProps = (async (
   context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
@@ -66,7 +65,7 @@ export default function Category({
   posts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <BaseLayout title={category.name} description={category.description}>
+    <ArticleLayout title={category.name} description={category.description}>
       <main>
         {category && category?.imageUrl ? (
           <Box
@@ -78,53 +77,47 @@ export default function Category({
             bgSize={"cover"}
           />
         ) : null}
-        <AppContainer
-          pt={category && category?.imageUrl ? 8 : 24}
-          pb={12}
-          minH="90vh"
-        >
-          <Stack spacing={8}>
-            {category ? <BlocksRenderer data={category.blocks ?? []} /> : null}
+        <Stack spacing={8}>
+          {category ? <BlocksRenderer data={category.blocks ?? []} /> : null}
 
-            <Grid
-              templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
-              gap={4}
-            >
-              {posts.map((post) => (
-                <GridItem key={post.id}>
-                  <Link href={`/${category.slug}/${post.slug}`}>
-                    <Card shadow={0} bgColor={"transparent"}>
-                      <CardBody p={0} textAlign={"center"}>
-                        {post.imageUrl ? (
-                          <Image
-                            mb={4}
-                            borderRadius={8}
-                            src={post.imageUrl}
-                            width={375}
-                            height={200}
-                            objectFit="cover"
-                            placeholder="blur"
-                            draggable={false}
-                            alt={post.title}
-                          />
-                        ) : null}
-                        <Text
-                          fontFamily={"heading"}
-                          fontWeight="bold"
-                          fontSize={18}
-                        >
-                          {post.title}
-                        </Text>
-                        <Text>{post.description}</Text>
-                      </CardBody>
-                    </Card>
-                  </Link>
-                </GridItem>
-              ))}
-            </Grid>
-          </Stack>
-        </AppContainer>
+          <Grid
+            templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
+            gap={4}
+          >
+            {posts.map((post) => (
+              <GridItem key={post.id}>
+                <Link href={`/${category.slug}/${post.slug}`}>
+                  <Card shadow={0} bgColor={"transparent"}>
+                    <CardBody p={0} textAlign={"center"}>
+                      {post.imageUrl ? (
+                        <Image
+                          mb={4}
+                          borderRadius={8}
+                          src={post.imageUrl}
+                          width={375}
+                          height={200}
+                          objectFit="cover"
+                          placeholder="blur"
+                          draggable={false}
+                          alt={post.title}
+                        />
+                      ) : null}
+                      <Text
+                        fontFamily={"heading"}
+                        fontWeight="bold"
+                        fontSize={18}
+                      >
+                        {post.title}
+                      </Text>
+                      <Text>{post.description}</Text>
+                    </CardBody>
+                  </Card>
+                </Link>
+              </GridItem>
+            ))}
+          </Grid>
+        </Stack>
       </main>
-    </BaseLayout>
+    </ArticleLayout>
   );
 }

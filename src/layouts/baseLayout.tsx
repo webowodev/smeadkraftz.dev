@@ -4,16 +4,18 @@ import { PropsWithChildren, useMemo } from "react";
 import { motion } from "framer-motion";
 import Footer from "@/components/organisms/footer";
 
+export type IBaseLayout = {
+  title?: string;
+  description?: string;
+  imageUrl?: string;
+};
+
 export default function BaseLayout({
   children,
   title,
   description,
   imageUrl,
-}: PropsWithChildren<{
-  title?: string;
-  description?: string;
-  imageUrl?: string;
-}>) {
+}: PropsWithChildren<IBaseLayout>) {
   const router = useRouter();
 
   const url: string = process.env.NEXT_PUBLIC_BASE_URL + router.asPath;

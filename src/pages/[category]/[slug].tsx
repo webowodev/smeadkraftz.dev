@@ -1,6 +1,5 @@
-import AppContainer from "@/components/atoms/appContainer";
 import BlocksRenderer from "@/components/molecules/blocksRenderer";
-import BaseLayout from "@/layouts/baseLayout";
+import ArticleLayout from "@/layouts/articleLayout";
 import { IMenus } from "@/lib/entities/menu";
 import { IPost } from "@/lib/entities/post";
 import fetchCommonData from "@/lib/usecases/fetchCommonData";
@@ -56,30 +55,18 @@ export default function PostDetailPage({
   post,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <BaseLayout
+    <ArticleLayout
       title={post?.title}
       description={post?.description}
       imageUrl={post?.imageUrl ?? undefined}
     >
-      {post?.imageUrl ? (
-        <Box
-          flex={1}
-          h={320}
-          bgImage={post?.imageUrl}
-          bgPosition={"center"}
-          bgRepeat={"no-repeat"}
-          bgSize={"cover"}
-        />
-      ) : null}
-      <AppContainer pt={post && post?.imageUrl ? 8 : 24} pb={12} minH="90vh">
-        <Box as="article">
-          <Heading size={"xl"} mb={"0.5rem"}>
-            {post?.title}
-          </Heading>
+      <Box as="article">
+        <Heading size={"xl"} mb={"0.5rem"}>
+          {post?.title}
+        </Heading>
 
-          <BlocksRenderer data={post?.blocks ?? []} />
-        </Box>
-      </AppContainer>
-    </BaseLayout>
+        <BlocksRenderer data={post?.blocks ?? []} />
+      </Box>
+    </ArticleLayout>
   );
 }

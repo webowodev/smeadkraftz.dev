@@ -1,12 +1,15 @@
 import AppContainer from "@/components/atoms/appContainer";
-import BaseLayout from "./baseLayout";
+import BaseLayout, { IBaseLayout } from "./baseLayout";
 import { PropsWithChildren } from "react";
 import { Box, Center, Grid, GridItem } from "@chakra-ui/react";
 import MeCard from "@/components/molecules/about/meCard";
 
-export default function AboutLayout({ children }: PropsWithChildren<any>) {
+export default function AboutLayout({
+  children,
+  ...rest
+}: PropsWithChildren<IBaseLayout>) {
   return (
-    <BaseLayout>
+    <BaseLayout {...rest}>
       <AppContainer pt={24} minH={"85vh"} px={{ base: 5, xl: 24 }} pb={12}>
         <Grid
           templateColumns={"repeat(12, 1fr)"}

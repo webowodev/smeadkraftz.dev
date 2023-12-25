@@ -1,5 +1,5 @@
 import AppContainer from "@/components/atoms/appContainer";
-import BaseLayout from "./baseLayout";
+import BaseLayout, { IBaseLayout } from "./baseLayout";
 import { PropsWithChildren } from "react";
 import {
   Box,
@@ -12,9 +12,12 @@ import {
 } from "@chakra-ui/react";
 import MeCard from "@/components/molecules/about/meCard";
 
-export default function ArticleLayout({ children }: PropsWithChildren<any>) {
+export default function ArticleLayout({
+  children,
+  ...rest
+}: PropsWithChildren<IBaseLayout>) {
   return (
-    <BaseLayout>
+    <BaseLayout {...rest}>
       <AppContainer pt={24} minH={"85vh"}>
         <Grid
           templateColumns={"repeat(12, 1fr)"}
@@ -27,7 +30,7 @@ export default function ArticleLayout({ children }: PropsWithChildren<any>) {
           </GridItem>
           <GridItem colSpan={{ base: 12, xl: 6 }}>{children}</GridItem>
           {/* Start more articles */}
-          <GridItem colSpan={{ base: 12, xl: 3 }}>
+          <GridItem colSpan={{ base: 12, lg: 6, xl: 3 }}>
             <Card position={"sticky"} top={76}>
               <CardBody>
                 <List>
@@ -39,7 +42,7 @@ export default function ArticleLayout({ children }: PropsWithChildren<any>) {
             </Card>
           </GridItem>
           {/* End more articles */}
-          <GridItem hideFrom={"xl"} colSpan={12} mb={12}>
+          <GridItem hideFrom={"xl"} colSpan={{ base: 12, lg: 6 }} mb={12}>
             <MeCard />
           </GridItem>
         </Grid>
