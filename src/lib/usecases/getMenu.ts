@@ -12,11 +12,13 @@ export default async function getMenuBySlug(
       process.env.NOTION_MENUS_DATABASE_ID as string,
       {
         filter: {
-          property: "Status",
-          status: {
-            equals: "Published",
-          },
           and: [
+            {
+              property: "Status",
+              status: {
+                equals: "Published",
+              },
+            },
             {
               property: "Slug",
               rich_text: {
@@ -29,6 +31,7 @@ export default async function getMenuBySlug(
     );
 
     const result = results[0] as PageObjectResponse | undefined;
+    console.info("getMenuBySlug:", JSON.stringify(results[0]));
 
     if (result && getPlainTextProperty(result, "Slug") !== slug) {
       return {
@@ -54,8 +57,6 @@ export default async function getMenuBySlug(
 
       data.blocks = blocks;
     }
-
-    console.info("getMenuBySlug:", slug, data);
 
     return {
       data: data,

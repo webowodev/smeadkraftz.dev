@@ -29,11 +29,13 @@ export const fetchPageBySlug = async (
     .query({
       database_id: databaseId,
       filter: {
-        property: "Status",
-        status: {
-          equals: "Published",
-        },
         and: [
+          {
+            property: "Status",
+            status: {
+              equals: "Published",
+            },
+          },
           {
             property: "Slug",
             rich_text: {
