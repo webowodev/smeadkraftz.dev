@@ -29,6 +29,8 @@ export default async function getMenus(): Promise<BaseResponse<IMenus>> {
         name: getPlainTextProperty(page, "Name"),
         slug: getPlainTextProperty(page, "Slug"),
         url: getPlainTextProperty(page, "URL"),
+        // @ts-ignore
+        lastEditedTime: page.last_edited_time,
       })),
       error: null,
     };
