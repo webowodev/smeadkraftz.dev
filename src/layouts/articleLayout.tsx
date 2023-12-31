@@ -18,7 +18,7 @@ export default function ArticleLayout({
 }: PropsWithChildren<IBaseLayout>) {
   return (
     <BaseLayout {...rest}>
-      <AppContainer pt={24} minH={"85vh"}>
+      <AppContainer pt={24} minH={"85vh"} px={{ base: 5, xl: 24 }}>
         <Grid
           templateColumns={"repeat(12, 1fr)"}
           gap={{ base: 4, xl: 12, lg: 12, md: 8 }}

@@ -14,6 +14,12 @@ function generateSiteMap(urls: IUrl[]) {
      <url>
        <loc>https://smeadkraftz.dev</loc>
      </url>
+     <url>
+       <loc>https://smeadkraftz.dev/about</loc>
+     </url>
+     <url>
+       <loc>https://smeadkraftz.dev/experiences</loc>
+     </url>
      ${urls
        .map((url) => {
          return `

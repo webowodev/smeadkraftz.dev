@@ -1,0 +1,64 @@
+.NodeJS {
+  background-color: var(--chakra-colors-green-50) !important;
+  color: var(--chakra-colors-green-500) !important;
+}
+
+.Supabase {
+  background-color: var(--chakra-colors-green-50) !important;
+  color: var(--chakra-colors-green-500) !important;
+}
+
+.React {
+  background-color: var(--chakra-colors-blue-50) !important;
+  color: var(--chakra-colors-blue-500) !important;
+}
+
+.Flutter {
+  background-color: var(--chakra-colors-blue-50) !important;
+  color: var(--chakra-colors-blue-500) !important;
+}
+
+.Laravel {
+  background-color: var(--chakra-colors-red-50) !important;
+  color: var(--chakra-colors-red-500) !important;
+}
+
+.AWS {
+  background-color: var(--chakra-colors-orange-50) !important;
+  color: var(--chakra-colors-orange-500) !important;
+}
+
+.GCP {
+  background-color: var(--chakra-colors-blue-50) !important;
+  color: var(--chakra-colors-blue-500) !important;
+}
+
+.Terraform {
+  background-color: var(--chakra-colors-purple-50) !important;
+  color: var(--chakra-colors-purple-500) !important;
+}
+
+.Vue {
+  background-color: var(--chakra-colors-green-50) !important;
+  color: var(--chakra-colors-green-500) !important;
+}
+
+.MySQL {
+  background-color: var(--chakra-colors-blue-50) !important;
+  color: var(--chakra-colors-blue-500) !important;
+}
+
+.PostgreSQL {
+  background-color: var(--chakra-colors-blue-50) !important;
+  color: var(--chakra-colors-blue-500) !important;
+}
+
+.AngularJS {
+  background-color: var(--chakra-colors-red-50) !important;
+  color: var(--chakra-colors-red-500) !important;
+}
+
+.Capacitor {
+  background-color: var(--chakra-colors-blue-50) !important;
+  color: var(--chakra-colors-blue-500) !important;
+}

@@ -1,12 +1,22 @@
 import AboutLayout from "@/layouts/aboutLayout";
 import { IMenus } from "@/lib/entities/menu";
 import fetchCommonData from "@/lib/usecases/fetchCommonData";
-import { Box, Card, CardBody, Center, Heading, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  CardBody,
+  Center,
+  Heading,
+  Stack,
+  Text,
+  Link,
+} from "@chakra-ui/react";
 import {
   GetServerSideProps,
   GetServerSidePropsContext,
   PreviewData,
 } from "next";
+import NextLink from "next/link";
 import { ParsedUrlQuery } from "querystring";
 
 export const getServerSideProps = (async (
@@ -35,21 +45,29 @@ export const getServerSideProps = (async (
 export default function AboutPage() {
   return (
     <AboutLayout title="About" description="About">
-      <Box maxW={{ base: "100%", lg: "80%", xl: "80%" }}>
+      <Box
+        minW={{ base: "100%", lg: "80%", xl: "60%" }}
+        maxW={{ base: "100%", lg: "80%", xl: "60%" }}
+      >
         <Center mb={8}>
           <Heading>What do I do?</Heading>
         </Center>
         <Stack>
-          {Array.from(new Array(10)).map((_, index) => (
-            <Card key={index}>
-              <CardBody>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-                harum aliquam omnis voluptatum, fugiat placeat optio aliquid!
-                Tempora fugit a iure ducimus? Nisi facere unde quod neque sunt
-                voluptates harum.
-              </CardBody>
-            </Card>
-          ))}
+          <Card>
+            <CardBody>
+              <Heading fontSize={"2xl"} mb={4}>
+                Full-Stack Software Engineer
+              </Heading>
+              <Text>
+                I love to write code to build things, design systems and
+                architectures. Currently I am working remotely{" "}
+                <Link as={NextLink} href="https://karyakarsa.com">
+                  @karyakarsa
+                </Link>
+                .
+              </Text>
+            </CardBody>
+          </Card>
         </Stack>
       </Box>
     </AboutLayout>
