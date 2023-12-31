@@ -16,6 +16,16 @@ export async function generateMetadata({
   params,
 }: PostDetailProps): Promise<Metadata> {
   const result = await getPostDetail(params.slug);
+  if (!result.data) {
+    // return not found when category not found
+    return {
+      title: "Not Found",
+      description: "Page Not Found",
+      openGraph: {
+        images: ["/images/card.png"],
+      },
+    };
+  }
   return {
     title: result.data?.title,
     description: result.data?.description + " - Dimas Wibowo",

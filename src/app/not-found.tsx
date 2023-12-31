@@ -1,5 +1,14 @@
 import AppContainer from "@/components/atoms/appContainer";
 import { Box, Heading, Text } from "@chakra-ui/react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Not Found",
+  description: "Page Not Found",
+  openGraph: {
+    images: ["/images/card.png"],
+  },
+};
 
 export default function NotFoundPage() {
   return (

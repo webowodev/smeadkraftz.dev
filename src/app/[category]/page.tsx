@@ -19,6 +19,17 @@ export async function generateMetadata({
 }: CategoryPageProps): Promise<Metadata> {
   const result = await getMenuBySlug(params.category);
 
+  if (!result.data) {
+    // return not found when category not found
+    return {
+      title: "Not Found",
+      description: "Page Not Found",
+      openGraph: {
+        images: ["/images/card.png"],
+      },
+    };
+  }
+
   return {
     title: result.data?.name,
     description: result.data?.description,
