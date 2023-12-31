@@ -24,8 +24,6 @@ export const getServerSideProps = (async (
   const category: string = context.params?.category as string;
   const slug: string = context.params?.slug as string;
 
-  console.log("category", category);
-
   // fetch data
   const results = await Promise.all([
     await getPostDetail(slug),

@@ -30,7 +30,7 @@ git clone https://github.com/yourusername/yourproject.git
 npm install
 ```
 
-3. Copy and modify `.env.example`
+3. Copy the `.env.example` to `.env.local` and modify it
 
 ```bash
 cp .env.example .env.local
