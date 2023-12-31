@@ -8,6 +8,15 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "About Dimas Wibowo",
+  openGraph: {
+    images: ["/images/card.png"],
+  },
+};
 
 export default function AboutPage() {
   return (

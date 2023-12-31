@@ -6,6 +6,7 @@ import LazyImage from "@/components/atoms/lazyImage";
 import { Grid, GridItem, Stack } from "@chakra-ui/react";
 import BlocksRenderer from "@/components/molecules/blocksRenderer";
 import ArticleCard from "@/components/molecules/articleCard";
+import { Metadata } from "next";
 
 type CategoryPageProps = {
   params: {
@@ -13,9 +14,21 @@ type CategoryPageProps = {
   };
 };
 
+export async function generateMetadata({
+  params,
+}: CategoryPageProps): Promise<Metadata> {
+  const result = await getMenuBySlug(params.category);
+
+  return {
+    title: result.data?.name,
+    description: result.data?.description,
+    openGraph: {
+      images: result.data?.imageUrl ? [result.data?.imageUrl] : [],
+    },
+  };
+}
 export default async function Category({ params }: CategoryPageProps) {
   const result = await getMenuBySlug(params.category);
-  console.log("category", result);
 
   if (!result.data) {
     // return not found when category not found

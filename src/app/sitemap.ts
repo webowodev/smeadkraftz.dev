@@ -23,7 +23,6 @@ function generateUrlsFromMenus(menus: IMenus): ISiteMap[] {
 }
 
 function generateUrlsFromPages(pages: PageObjectResponse[]): ISiteMap[] {
-  console.log("pages:", JSON.stringify(pages));
   return pages.map((page) => {
     return {
       url: `${

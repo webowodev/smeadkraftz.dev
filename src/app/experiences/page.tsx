@@ -1,5 +1,14 @@
 import Timeline, { TimelineEvent } from "@/components/molecules/timeline";
 import { Box, Center, Heading } from "@chakra-ui/react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Experiences",
+  description: "Dimas Wibowo's Experiences",
+  openGraph: {
+    images: ["/images/card.png"],
+  },
+};
 export default function ExperiencesPage() {
   const events: TimelineEvent[] = [
     {
