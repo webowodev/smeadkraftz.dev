@@ -1,38 +1,5 @@
 import Timeline, { TimelineEvent } from "@/components/molecules/timeline";
-import AboutLayout from "@/layouts/aboutLayout";
-import { IMenus } from "@/lib/entities/menu";
-import fetchCommonData from "@/lib/usecases/fetchCommonData";
 import { Box, Center, Heading } from "@chakra-ui/react";
-import {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  PreviewData,
-} from "next";
-import { ParsedUrlQuery } from "querystring";
-
-export const getServerSideProps = (async (
-  context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
-) => {
-  context.res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
-  );
-
-  // fetch data
-  const results = await Promise.all([await fetchCommonData()]);
-
-  let notFound = false;
-
-  return {
-    props: {
-      ...results[0],
-    },
-    notFound,
-  };
-}) satisfies GetServerSideProps<{
-  menus: IMenus;
-}>;
-
 export default function ExperiencesPage() {
   const events: TimelineEvent[] = [
     {
@@ -153,16 +120,14 @@ export default function ExperiencesPage() {
   ];
 
   return (
-    <AboutLayout title="My Experiences" description="Dimas' Experiences">
-      <Box
-        minW={{ base: "100%", lg: "80%", xl: "60%" }}
-        maxW={{ base: "100%", lg: "80%", xl: "60%" }}
-      >
-        <Center mb={8}>
-          <Heading>My Experiences</Heading>
-        </Center>
-        <Timeline events={events} />
-      </Box>
-    </AboutLayout>
+    <Box
+      minW={{ base: "100%", lg: "80%", xl: "60%" }}
+      maxW={{ base: "100%", lg: "80%", xl: "60%" }}
+    >
+      <Center mb={8}>
+        <Heading>My Experiences</Heading>
+      </Center>
+      <Timeline events={events} />
+    </Box>
   );
 }

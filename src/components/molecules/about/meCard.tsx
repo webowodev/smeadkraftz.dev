@@ -9,8 +9,8 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { Link } from "@chakra-ui/next-js";
 import SocialLinks from "../socialLinks";
+import Link from "@/components/atoms/link";
 
 export default function MeCard() {
   const imageSize: number = 220;

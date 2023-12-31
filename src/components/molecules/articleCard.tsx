@@ -1,6 +1,6 @@
-import { Link } from "@chakra-ui/next-js";
 import { Card, CardBody, Text } from "@chakra-ui/react";
 import LazyImage from "../atoms/lazyImage";
+import Link from "../atoms/link";
 
 export type IArticleCardProps = {
   title: string;

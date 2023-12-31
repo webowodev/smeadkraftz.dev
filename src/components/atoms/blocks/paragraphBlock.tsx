@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Text } from "@chakra-ui/react";
-import { Link } from "@chakra-ui/next-js";
+import Link from "../link";
 
 const ParagraphBlock = ({ block }: { block: any }) => {
   const renderTextElements = () => {

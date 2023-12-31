@@ -1,3 +1,4 @@
+"use client";
 import { ImageProps, chakra } from "@chakra-ui/react";
 import NextImage, { ImageProps as NextImageProps } from "next/image";
 

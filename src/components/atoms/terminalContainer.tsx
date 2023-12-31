@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 import { TypeAnimation } from "react-type-animation";
@@ -45,7 +47,7 @@ export default function TerminalContainer({ children }: PropsWithChildren) {
                 fontWeight: "bold",
                 fontFamily: "var(--chakra-fonts-mono)",
               }}
-            ></TypeAnimation>
+            />
           </Stack>
           {children}
         </Box>

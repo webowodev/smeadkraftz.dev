@@ -1,3 +1,4 @@
+"use client";
 import { useColorModeValue, useToken } from "@chakra-ui/react";
 import { SocialIcon, SocialIconProps } from "react-social-icons";
 

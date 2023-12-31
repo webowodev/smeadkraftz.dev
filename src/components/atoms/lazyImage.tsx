@@ -1,3 +1,4 @@
+"use client";
 import toBase64 from "@/common/toBase64";
 import Image, { IImage } from "./image";
 import shimmer from "@/common/shimmer";

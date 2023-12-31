@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@chakra-ui/next-js";
+import Link from "../link";
 
 const BulletedListBlock: React.FC<{ block: any }> = ({ block }) => {
   const renderTextElements = () => {

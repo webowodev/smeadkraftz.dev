@@ -1,11 +1,7 @@
+"use client";
 import { Box } from "@chakra-ui/react";
-import dynamic from "next/dynamic";
 import { TypeAnimation } from "react-type-animation";
-
-const TerminalContainer = dynamic(
-  import("@/components/atoms/terminalContainer"),
-  {}
-);
+import TerminalContainer from "@/components/atoms/terminalContainer";
 
 export default function HelloSection() {
   const sequence = [

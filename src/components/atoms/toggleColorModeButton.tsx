@@ -1,8 +1,8 @@
-import { useColorMode } from "@chakra-ui/react";
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+"use client";
 
-const DayNightToggle = dynamic(() => import("react-day-and-night-toggle"), {});
+import { useColorMode } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import DayNightToggle from "react-day-and-night-toggle";
 
 export default function ToggleColorModeButton() {
   const { colorMode, setColorMode } = useColorMode();
