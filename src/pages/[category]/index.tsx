@@ -9,20 +9,13 @@ import fetchCommonData from "@/lib/usecases/fetchCommonData";
 import { ParsedUrlQuery } from "querystring";
 import getMenuBySlug from "@/lib/usecases/getMenu";
 import BlocksRenderer from "@/components/molecules/blocksRenderer";
-import {
-  Box,
-  Card,
-  CardBody,
-  Grid,
-  GridItem,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Grid, GridItem, Stack } from "@chakra-ui/react";
 import getPostsByCategory from "@/lib/usecases/getPostsByCategory";
 import { IPosts } from "@/lib/entities/post";
-import Image from "@/components/atoms/image";
-import { Link } from "@chakra-ui/next-js";
-import ArticleLayout from "@/layouts/articleLayout";
+import BaseLayout from "@/layouts/baseLayout";
+import AppContainer from "@/components/atoms/appContainer";
+import LazyImage from "@/components/atoms/lazyImage";
+import ArticleCard from "@/components/molecules/articleCard";
 
 export const getServerSideProps = (async (
   context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
@@ -33,11 +26,15 @@ export const getServerSideProps = (async (
   );
   const category: string = context.params?.category as string;
 
+  console.log("category", category);
+
   // fetch data
   const results = await Promise.all([
     await getMenuBySlug(category),
     await fetchCommonData(),
   ]);
+
+  console.log("menus", results[0]);
 
   if (!results[0].data) {
     return {
@@ -65,16 +62,26 @@ export default function Category({
   posts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <ArticleLayout title={category.name} description={category.description}>
-      <main>
+    <BaseLayout title={category.name} description={category.description}>
+      <AppContainer
+        maxW={"container.md"}
+        pt={24}
+        pb={24}
+        px={{ base: 5, lg: 40, xl: 12 }}
+      >
         {category && category?.imageUrl ? (
-          <Box
-            flex={1}
-            h={320}
-            bgImage={category.imageUrl}
-            bgPosition={"center"}
-            bgRepeat={"no-repeat"}
-            bgSize={"cover"}
+          <LazyImage
+            borderRadius={8}
+            src={category.imageUrl}
+            width={0}
+            height={0}
+            layout="fill"
+            sizes="(100vw, 100vh)"
+            objectFit="cover"
+            draggable={false}
+            style={{ width: "100%", height: "320px", pointerEvents: "none" }}
+            alt={category.name}
+            mb={8}
           />
         ) : null}
         <Stack spacing={8}>
@@ -84,40 +91,21 @@ export default function Category({
             templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
             gap={4}
           >
-            {posts.map((post) => (
-              <GridItem key={post.id}>
-                <Link href={`/${category.slug}/${post.slug}`}>
-                  <Card shadow={0} bgColor={"transparent"}>
-                    <CardBody p={0} textAlign={"center"}>
-                      {post.imageUrl ? (
-                        <Image
-                          mb={4}
-                          borderRadius={8}
-                          src={post.imageUrl}
-                          width={375}
-                          height={200}
-                          objectFit="cover"
-                          placeholder="blur"
-                          draggable={false}
-                          alt={post.title}
-                        />
-                      ) : null}
-                      <Text
-                        fontFamily={"heading"}
-                        fontWeight="bold"
-                        fontSize={18}
-                      >
-                        {post.title}
-                      </Text>
-                      <Text>{post.description}</Text>
-                    </CardBody>
-                  </Card>
-                </Link>
-              </GridItem>
-            ))}
+            {posts.map((post) => {
+              return (
+                <GridItem key={post.id}>
+                  <ArticleCard
+                    title={post.title}
+                    url={`/${category.slug}/${post.slug}`}
+                    imageUrl={post.imageUrl}
+                    description={post.description}
+                  />
+                </GridItem>
+              );
+            })}
           </Grid>
         </Stack>
-      </main>
-    </ArticleLayout>
+      </AppContainer>
+    </BaseLayout>
   );
 }

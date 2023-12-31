@@ -5,27 +5,27 @@ import { IMenu } from "../entities/menu";
 import { getCoverUrl, getPlainTextProperty } from "@/common/getProperty";
 
 export default async function getMenuBySlug(
-  slug: string,
+  slug: string
 ): Promise<BaseResponse<IMenu | undefined>> {
   try {
     const { results } = await fetchPages(
       process.env.NOTION_MENUS_DATABASE_ID as string,
       {
         filter: {
-          property: "Slug",
-          rich_text: {
-            equals: slug,
+          property: "Status",
+          status: {
+            equals: "Published",
           },
           and: [
             {
-              property: "Status",
-              status: {
-                equals: "Published",
+              property: "Slug",
+              rich_text: {
+                equals: slug,
               },
             },
           ],
         },
-      },
+      }
     );
 
     const result = results[0] as PageObjectResponse | undefined;

@@ -6,15 +6,17 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import avatarImg from "../../../public/images/avatar.jpeg";
 
 export default function Introduce() {
   const imageSize = useBreakpointValue({ base: 120, md: 150, lg: 200 }) ?? 200;
   return (
     <Stack alignItems={"center"} spacing={6}>
       <Image
-        src={"/images/avatar.jpeg"}
+        src={avatarImg}
         width={imageSize}
         height={imageSize}
+        placeholder="blur"
         alt={"Dimas Wibowo"}
         style={{
           borderRadius: imageSize / 2,

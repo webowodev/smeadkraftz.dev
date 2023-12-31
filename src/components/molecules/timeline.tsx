@@ -97,6 +97,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ event, borderColor }) => {
           {/* start title and date */}
           <Stack>
             <Heading fontSize="2xl">{event.title}</Heading>
+            {event.description ? <Text>{event.description}</Text> : null}
             <Stack direction="row">
               <Link as={NextLink} href={event.company.url} isExternal>
                 {event.company.name}
