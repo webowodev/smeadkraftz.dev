@@ -104,11 +104,14 @@ export default function NavigationHeader() {
                       {menus?.map((menu) => (
                         <MenuItem
                           as={Link}
-                          href={menu.slug}
+                          href={menu.url}
                           key={menu.id}
                           fontFamily={"mono"}
                           _active={{ bg: "none" }}
+                          px={4}
+                          bg="none"
                           fontWeight="bold"
+                          my={2}
                           textTransform={"capitalize"}
                         >
                           {menu.name}
