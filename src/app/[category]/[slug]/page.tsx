@@ -1,3 +1,4 @@
+import LazyImage from "@/components/atoms/lazyImage";
 import BlocksRenderer from "@/components/molecules/blocksRenderer";
 import { IPost } from "@/lib/entities/post";
 import getMenuBySlug from "@/lib/usecases/getMenu";
@@ -40,6 +41,21 @@ export default async function PostDetailPage({
 
   return (
     <Box as="article">
+      {post && post?.imageUrl ? (
+        <LazyImage
+          borderRadius={8}
+          src={post.imageUrl}
+          width={0}
+          height={0}
+          layout="fill"
+          sizes="(100vw, 100vh)"
+          objectFit="cover"
+          draggable={false}
+          style={{ width: "100%", height: "320px", pointerEvents: "none" }}
+          alt={post.title}
+          mb={8}
+        />
+      ) : null}
       <Heading size={"xl"} mb={"0.5rem"}>
         {post?.title}
       </Heading>
