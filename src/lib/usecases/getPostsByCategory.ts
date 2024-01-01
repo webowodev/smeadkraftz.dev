@@ -2,33 +2,51 @@ import { fetchPages } from "../data/notionAdapter";
 import BaseResponse from "@/common/baseResponse";
 import { IPosts } from "../entities/post";
 import { get } from "lodash";
-import { getCoverUrl, getPlainTextProperty } from "@/common/getProperty";
+import {
+  getCoverUrl,
+  getPlainTextProperty,
+  getProperty,
+} from "@/utils/getProperty";
 
 export default async function getPostsByCategory(
-  category: string
+  category: string,
+  tag?: string
 ): Promise<BaseResponse<IPosts>> {
   try {
+    let filters: any = [
+      {
+        property: "Category",
+        select: {
+          equals: category,
+        },
+      },
+      {
+        property: "Status",
+        status: {
+          equals: "Published",
+        },
+      },
+    ];
+
+    if (tag) {
+      filters.push({
+        property: "Tags",
+        multi_select: {
+          contains: tag,
+        },
+      });
+    }
+
     const { results } = await fetchPages(
       process.env.NOTION_POSTS_DATABASE_ID as string,
       {
         filter: {
-          property: "Status",
-          status: {
-            equals: "Published",
-          },
-          and: [
-            {
-              property: "Category",
-              select: {
-                equals: category,
-              },
-            },
-          ],
+          and: filters,
         },
       }
     );
 
-    console.info("getPostsByCategory:", results[0]);
+    console.info("getPostsByCategory:", JSON.stringify(results[0]));
 
     return {
       data: results.map((page) => {
@@ -39,6 +57,8 @@ export default async function getPostsByCategory(
           date: get(page, "created_time", ""),
           description: getPlainTextProperty(page, "Description"),
           imageUrl: getCoverUrl(page),
+          tags:
+            getProperty(page, "Tags", [])?.map((tag: any) => tag.name) ?? [],
         };
       }),
       error: null,

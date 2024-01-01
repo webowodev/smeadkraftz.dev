@@ -1,7 +1,11 @@
 import BaseResponse from "@/common/baseResponse";
 import { IPost } from "../entities/post";
 import { fetchPageBlocks, fetchPageBySlug } from "../data/notionAdapter";
-import { getCoverUrl, getPlainTextProperty } from "@/common/getProperty";
+import {
+  getCoverUrl,
+  getPlainTextProperty,
+  getProperty,
+} from "@/utils/getProperty";
 
 export default async function getPostDetail(
   slug: string
@@ -31,6 +35,8 @@ export default async function getPostDetail(
         description: getPlainTextProperty(result, "Description"),
         imageUrl: getCoverUrl(result),
         blocks: blocks ?? [],
+        tags:
+          getProperty(result, "Tags", [])?.map((tag: any) => tag.name) ?? [],
       },
       error: null,
     };

@@ -7,6 +7,7 @@ export type IPost = {
   date: string;
   description: string;
   imageUrl?: string | null;
+  tags?: string[];
   blocks?: BlockObjectResponse[];
 };
 

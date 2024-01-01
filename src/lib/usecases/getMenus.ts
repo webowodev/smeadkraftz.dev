@@ -1,7 +1,7 @@
 import { fetchPages } from "../data/notionAdapter";
 import { IMenus } from "@/lib/entities/menu";
 import BaseResponse from "@/common/baseResponse";
-import { getPlainTextProperty } from "@/common/getProperty";
+import { getPlainTextProperty } from "@/utils/getProperty";
 
 export default async function getMenus(): Promise<BaseResponse<IMenus>> {
   try {

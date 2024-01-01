@@ -16,7 +16,7 @@ export default function Page() {
       as="main"
       pt={24}
       pb={12}
-      h="90vh"
+      h="100vh"
       display={"flex"}
       alignItems={"center"}
       justifyContent={"center"}

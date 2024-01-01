@@ -9,13 +9,17 @@ export default function AboutLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AppContainer pt={24} minH={"85vh"} px={{ base: 5, xl: 24 }} pb={12}>
+    <AppContainer pt={24} minH={"100vh"} px={{ base: 5, xl: 24 }} pb={12}>
       <Grid
         templateColumns={"repeat(12, 1fr)"}
         gap={{ base: 4, xl: 12, lg: 5, md: 8 }}
       >
         <GridItem colSpan={{ base: 12, lg: 4, xl: 3 }}>
-          <Box position={"sticky"} top={76} mb={8}>
+          <Box
+            position={{ base: "relative", xl: "sticky", lg: "sticky" }}
+            top={{ base: 0, xl: 76, lg: 76 }}
+            mb={8}
+          >
             <MeCard />
           </Box>
         </GridItem>

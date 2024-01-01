@@ -2,7 +2,11 @@ import { fetchPageBlocks, fetchPages } from "../data/notionAdapter";
 import BaseResponse from "@/common/baseResponse";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { IMenu } from "../entities/menu";
-import { getCoverUrl, getPlainTextProperty } from "@/common/getProperty";
+import {
+  getCoverUrl,
+  getPlainTextProperty,
+  getProperty,
+} from "@/utils/getProperty";
 
 export default async function getMenuBySlug(
   slug: string
@@ -48,6 +52,8 @@ export default async function getMenuBySlug(
           description: getPlainTextProperty(result, "Description"),
           imageUrl: getCoverUrl(result),
           url: getPlainTextProperty(result, "URL"),
+          tags:
+            getProperty(result, "Tags", [])?.map((tag: any) => tag.name) ?? [],
         }
       : undefined;
 

@@ -1,12 +1,10 @@
 import { Button, Stack } from "@chakra-ui/react";
 import styles from "./tags.module.css";
-import NextLink from "next/link";
+import ITag from "@/lib/entities/tag";
+import Link from "../atoms/link";
 
 interface ITagsProps {
-  items: {
-    title: string;
-    url?: string;
-  }[];
+  items: ITag[];
 }
 
 export default function Tags({ items }: ITagsProps) {
@@ -14,8 +12,8 @@ export default function Tags({ items }: ITagsProps) {
     <Stack spacing={2} direction={"row"} wrap={"wrap"}>
       {items.map((item, index) => (
         <Button
-          as={NextLink}
-          href={item.url}
+          as={Link}
+          href={item.url ?? "#"}
           variant={"ghost"}
           key={index}
           textDecoration={"underline"}

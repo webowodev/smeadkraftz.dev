@@ -8,6 +8,7 @@ export type IMenu = {
   description?: string;
   imageUrl?: string;
   lastEditedTime?: string;
+  tags?: string[];
 
   blocks?: BlockObjectResponse[];
 };

@@ -1,9 +1,13 @@
 import { get } from "lodash";
 
-export const getProperty = (page: any, name: String) => {
+export const getProperty = (
+  page: any,
+  name: String,
+  defaultValue: any = null
+) => {
   const property = get(page, "properties." + name);
   const type = get(property, "type");
-  return get(property, `${type}`);
+  return get(property, `${type}`, defaultValue);
 };
 
 export const getPlainTextProperty = (page: any, name: String) => {

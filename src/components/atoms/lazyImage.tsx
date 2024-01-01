@@ -1,7 +1,7 @@
 "use client";
-import toBase64 from "@/common/toBase64";
+import toBase64 from "@/utils/toBase64";
 import Image, { IImage } from "./image";
-import shimmer from "@/common/shimmer";
+import shimmer from "@/utils/shimmer";
 import { useColorModeValue } from "@chakra-ui/react";
 
 export default function LazyImage(props: IImage) {
