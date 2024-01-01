@@ -1,22 +1,35 @@
 import AppContainer from "@/components/atoms/appContainer";
+import Image from "@/components/atoms/image";
+import LazyImage from "@/components/atoms/lazyImage";
 import MeCard from "@/components/molecules/about/meCard";
 import {
+  Avatar,
   Box,
   Card,
   CardBody,
   Grid,
   GridItem,
+  Heading,
   List,
   ListItem,
+  Stack,
+  Text,
 } from "@chakra-ui/react";
+
+type ArticleLayoutProps = {
+  children: React.ReactNode;
+  params: {
+    category: string;
+    slug: string;
+  };
+};
 
 export default function ArticleLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+  params,
+}: ArticleLayoutProps) {
   return (
-    <AppContainer pt={24} minH={"85vh"} px={{ base: 5, xl: 24 }}>
+    <AppContainer pt={24} minH={"85vh"} pb={24} px={{ base: 5, xl: 24 }}>
       <Grid
         templateColumns={"repeat(12, 1fr)"}
         gap={{ base: 4, xl: 12, lg: 12, md: 8 }}
@@ -26,21 +39,10 @@ export default function ArticleLayout({
             <MeCard />
           </Box>
         </GridItem>
-        <GridItem colSpan={{ base: 12, xl: 6 }}>{children}</GridItem>
-        {/* Start more articles */}
-        <GridItem colSpan={{ base: 12, lg: 6, xl: 3 }}>
-          <Card position={"sticky"} top={76}>
-            <CardBody>
-              <List>
-                <ListItem>
-                  <Box>More Articles</Box>
-                </ListItem>
-              </List>
-            </CardBody>
-          </Card>
+        <GridItem colSpan={{ base: 12, xl: 9 }} mb={8}>
+          {children}
         </GridItem>
-        {/* End more articles */}
-        <GridItem hideFrom={"xl"} colSpan={{ base: 12, lg: 6 }} mb={12}>
+        <GridItem hideFrom={"xl"} colSpan={{ base: 12 }} mb={12}>
           <MeCard />
         </GridItem>
       </Grid>
