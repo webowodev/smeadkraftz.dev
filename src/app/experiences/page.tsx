@@ -111,7 +111,7 @@ export default function ExperiencesPage() {
     },
     {
       date: {
-        start: "Februray 2016",
+        start: "February 2016",
         end: "June 2019",
       },
       company: {
