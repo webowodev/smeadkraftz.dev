@@ -66,7 +66,7 @@ export default async function PostDetailPage({
           mb={8}
         />
       ) : null}
-      <Heading size={"xl"} mb={"0.5rem"}>
+      <Heading as="h1" size={"xl"} mb={"0.5rem"}>
         {post?.title}
       </Heading>
 

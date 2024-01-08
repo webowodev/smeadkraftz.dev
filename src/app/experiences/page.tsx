@@ -134,7 +134,7 @@ export default function ExperiencesPage() {
       maxW={{ base: "100%", lg: "80%", xl: "60%" }}
     >
       <Center mb={8}>
-        <Heading>My Experiences</Heading>
+        <Heading as="h1">My Experiences</Heading>
       </Center>
       <Timeline events={events} />
     </Box>

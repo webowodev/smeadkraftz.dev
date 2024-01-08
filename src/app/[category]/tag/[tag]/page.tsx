@@ -65,7 +65,7 @@ export default async function Category({ params }: CategoryPageProps) {
       <Stack spacing={8}>
         <Center mb={8}>
           <Stack textAlign={"center"} spacing={4}>
-            <Heading>
+            <Heading as="h1">
               {category?.name} About {params.tag}
             </Heading>
             <Tags

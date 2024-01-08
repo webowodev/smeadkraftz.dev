@@ -25,7 +25,7 @@ export default function AboutPage() {
       maxW={{ base: "100%", lg: "80%", xl: "60%" }}
     >
       <Center mb={8}>
-        <Heading>What do I do?</Heading>
+        <Heading as="h1">What do I do?</Heading>
       </Center>
       <Stack>
         <Card>

@@ -61,7 +61,7 @@ export default async function Category({ params }: CategoryPageProps) {
       <Stack spacing={8}>
         <Center mb={8}>
           <Stack textAlign={"center"} spacing={4}>
-            <Heading>{category?.name}</Heading>
+            <Heading as="h1">{category?.name}</Heading>
             <Tags
               items={[
                 { title: "React", url: `/${params.category}/tag/React` },
