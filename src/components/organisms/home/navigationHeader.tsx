@@ -4,7 +4,9 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   Flex,
+  Hide,
   Icon,
   Menu,
   MenuButton,
@@ -20,6 +22,7 @@ import Logo from "@/components/atoms/logo";
 import { useBase } from "@/providers/baseProvider";
 import { Link } from "@chakra-ui/next-js";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import SocialButton from "@/components/atoms/socialButton";
 
 export default function NavigationHeader() {
   const { colorMode } = useColorMode();
@@ -54,9 +57,11 @@ export default function NavigationHeader() {
             <Box>
               <Logo color={colorMode === "light" ? "black" : "white"} />
             </Box>
-            <Text fontFamily={"mono"} fontWeight="bold">
-              DIMAS WIBOWO
-            </Text>
+            <Hide breakpoint="(max-width: 767px)">
+              <Text fontFamily={"mono"} fontWeight="bold">
+                DIMAS WIBOWO
+              </Text>
+            </Hide>
           </Stack>
 
           {/* Start navigation menu */}
@@ -87,6 +92,7 @@ export default function NavigationHeader() {
 
           <Flex alignItems={"center"}>
             <Stack alignItems="center" direction={"row"} spacing={4}>
+              <SocialButton url="https://github.com/daemswibowo" />
               <ToggleColorModeButton />
 
               {/* only show menu button on mobile */}
