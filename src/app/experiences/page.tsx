@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Experiences",
   description: "Dimas Wibowo's Experiences",
   openGraph: {
-    images: ["/images/card.png"],
+    images: ["https://webowo.dev/images/card.png"],
   },
 };
 export default function ExperiencesPage() {

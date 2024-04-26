@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Currently working as VP of Engineering at KaryaKarsa with over 8 years of experience as Full-Stack Software Engineer, and I really enjoy bringing ideas to life through responsive web applications and mobile apps. My toolkit includes React, Node.js, Supabase, Flutter and many more – the ingredients for some pretty cool digital experiences.",
   openGraph: {
-    images: ["/images/card.png"],
+    images: ["https://webowo.dev/images/card.png"],
   },
 };
 

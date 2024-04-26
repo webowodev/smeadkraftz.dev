@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "About",
   description: "About Dimas Wibowo",
   openGraph: {
-    images: ["/images/card.png"],
+    images: ["https://webowo.dev/images/card.png"],
   },
 };
 
