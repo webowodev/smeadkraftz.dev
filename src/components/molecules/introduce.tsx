@@ -3,7 +3,7 @@ import Image from "next/image";
 import avatarImg from "../../../public/images/avatar.jpeg";
 
 export default function Introduce() {
-  const imageSize = useBreakpointValue({ base: 120, md: 150, lg: 200 }) ?? 200;
+  const imageSize = useBreakpointValue({ base: 100, md: 100, lg: 100 }) ?? 100;
   return (
     <Stack alignItems={"center"} spacing={6}>
       <Image
@@ -17,13 +17,13 @@ export default function Introduce() {
         }}
       />
       <Box textAlign={"center"}>
-        <Heading as="h1" fontSize={{ base: "4xl", md: "6xl" }}>
+        <Heading as="h1" fontSize={{ base: "2xl", md: "4xl" }}>
           Dimas Wibowo
         </Heading>
         <Heading
           as="h2"
           fontWeight={"medium"}
-          fontSize={{ base: "md", md: "2xl" }}
+          fontSize={{ base: "xs", md: "md" }}
         >
           Full-Stack Software Engineer
         </Heading>

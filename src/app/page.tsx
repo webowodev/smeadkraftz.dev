@@ -1,27 +1,38 @@
 import AppContainer from "@/components/atoms/appContainer";
+import { MacbookScroll } from "@/components/organisms/cn/macbookScroll";
 import HeroSection from "@/components/organisms/home/heroSection";
+import { Stack, Text } from "@chakra-ui/react";
 
 export const metadata = {
   title: "Dimas Wibowo - Home",
   description:
     "Currently working as VP of Engineering at KaryaKarsa with over 8 years of experience as Full-Stack Software Engineer, and I really enjoy bringing ideas to life through responsive web applications and mobile apps. My toolkit includes React, Node.js, Supabase, Flutter and many more – the ingredients for some pretty cool digital experiences.",
   openGraph: {
-    images: ["https://webowo.dev/images/card.png"],
+    images: [`${process.env.NEXT_PUBLIC_BASE_URL}/images/card.png`],
   },
 };
 
 export default function Page() {
   return (
-    <AppContainer
-      as="main"
-      pt={24}
-      pb={12}
-      h="100vh"
-      display={"flex"}
-      alignItems={"center"}
-      justifyContent={"center"}
-    >
-      <HeroSection />
+    <AppContainer as="main" maxW="container.2xl">
+      {/* <HeroSection /> */}
+      <MacbookScroll
+        title={
+          <Stack>
+            <Text fontFamily={"mono"} fontWeight={"bold"} fontSize={"5xl"}>
+              Hello World
+            </Text>
+            <Text fontFamily={"mono"}>
+              Scroll down to see my Macbook screen
+            </Text>
+          </Stack>
+        }
+        src={
+          <div className={"scale-75"}>
+            <HeroSection />
+          </div>
+        }
+      />
     </AppContainer>
   );
 }

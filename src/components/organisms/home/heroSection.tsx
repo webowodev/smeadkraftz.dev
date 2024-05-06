@@ -12,6 +12,8 @@ export default function HeroSection() {
       as={"section"}
       minW={{ base: "100%", md: "70%", lg: "50%" }}
       spacing={6}
+      h={"full"}
+      justifyContent={"center"}
     >
       {/* Start hello */}
       <Transition>

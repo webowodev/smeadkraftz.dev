@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-[https://smeadkraftz.dev/](https://smeadkraftz.dev/)
+[https://webowo.dev/](https://webowo.dev/)
 
 ## Tech Stack
 

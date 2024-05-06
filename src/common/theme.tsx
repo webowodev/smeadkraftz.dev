@@ -3,7 +3,7 @@ import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 import cardTheme from "./styles/card";
 
 const config: ThemeConfig = {
-  initialColorMode: "light",
+  initialColorMode: "dark",
   useSystemColorMode: false,
   disableTransitionOnChange: false,
 };
