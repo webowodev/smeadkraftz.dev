@@ -25,7 +25,7 @@ import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Logo from "@/components/atoms/logo";
-import { useColorModeValue } from "@chakra-ui/react";
+import { Box, useColorModeValue } from "@chakra-ui/react";
 
 export const MacbookScroll = ({
   src,
@@ -96,8 +96,9 @@ export const MacbookScroll = ({
         translate={translate}
       />
       {/* Base area */}
-      <div
-        className={`h-[22rem] w-[32rem] bg-gray-200 dark:bg-[${screenBg}] rounded-2xl overflow-hidden relative -z-10`}
+      <Box
+        bg={screenBg}
+        className={`h-[22rem] w-[32rem] rounded-2xl overflow-hidden relative -z-10`}
       >
         {/* above keyboard bar */}
         <div className="h-10 w-full relative">
@@ -120,7 +121,7 @@ export const MacbookScroll = ({
           <div className="h-40 w-full absolute bottom-0 inset-x-0 bg-gradient-to-t dark:from-black from-white via-white dark:via-black to-transparent z-50"></div>
         )}
         {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
-      </div>
+      </Box>
     </div>
   );
 };
@@ -160,7 +161,8 @@ export const Lid = ({
           </span>
         </div>
       </div>
-      <motion.div
+      <Box
+        as={motion.div}
         style={{
           scaleX: scaleX,
           scaleY: scaleY,
@@ -169,9 +171,10 @@ export const Lid = ({
           transformStyle: "preserve-3d",
           transformOrigin: "top",
         }}
-        className="h-96 w-[32rem] absolute inset-0 bg-[#010101] rounded-2xl p-2"
+        bg={"#010101"}
+        className={`h-96 w-[32rem] absolute inset-0  rounded-2xl p-2`}
       >
-        <div className={`absolute inset-0 bg-[${screenBg}] rounded-lg`} />
+        <Box className={`absolute inset-0 rounded-lg`} bg={screenBg} />
         {src && typeof src == "string" ? (
           <Image
             src={src as string}
@@ -182,7 +185,7 @@ export const Lid = ({
         ) : (
           src
         )}
-      </motion.div>
+      </Box>
     </div>
   );
 };
