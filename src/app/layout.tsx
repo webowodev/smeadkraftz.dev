@@ -3,6 +3,7 @@ import { Providers } from "./providers";
 import "@/app/globals.css";
 import fetchCommonData from "@/lib/usecases/fetchCommonData";
 import Footer from "@/components/organisms/footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export default async function RootLayout({
   children,
@@ -45,6 +46,7 @@ export default async function RootLayout({
           <Footer />
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-WQCQ11Q7W8" />
     </html>
   );
 }

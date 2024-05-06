@@ -8,7 +8,11 @@ import Transition from "@/components/atoms/transition";
 
 export default function HeroSection() {
   return (
-    <Stack minW={{ base: "100%", md: "70%", lg: "50%" }} spacing={6}>
+    <Stack
+      as={"section"}
+      minW={{ base: "100%", md: "70%", lg: "50%" }}
+      spacing={6}
+    >
       {/* Start hello */}
       <Transition>
         <Introduce />

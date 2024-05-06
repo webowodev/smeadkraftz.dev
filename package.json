@@ -15,6 +15,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@next/bundle-analyzer": "^14.0.4",
+    "@next/third-parties": "^14.2.3",
     "@notionhq/client": "^2.2.14",
     "framer-motion": "^10.16.16",
     "lodash": "^4.17.21",
@@ -26,13 +27,15 @@
     "react-social-icons": "^6.7.0",
     "react-syntax-highlighter": "^15.5.0",
     "react-type-animation": "^3.2.0",
-    "sharp": "^0.33.1"
+    "sharp": "^0.33.1",
+    "styled-components": "^6.1.9"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-syntax-highlighter": "^15.5.11",
+    "bun-types": "^1.1.7",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "typescript": "^5"
