@@ -11,6 +11,7 @@ export default function Footer() {
       as="footer"
       alignItems={"center"}
       p={4}
+      py={12}
       spacing={4}
       color={"gray.300"}
     >

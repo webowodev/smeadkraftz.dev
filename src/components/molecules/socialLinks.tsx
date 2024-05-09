@@ -8,7 +8,6 @@ export default function SocialLinks() {
       <SocialButton url="https://facebook.com/daemswibowo" />
       <SocialButton url="https://instagram.com/daemswibowo" />
       <SocialButton url="https://github.com/daemswibowo" />
-      <SocialButton url="https://dimaswibowo.medium.com" />
     </Stack>
   );
 }
