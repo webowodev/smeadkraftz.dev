@@ -1,25 +1,16 @@
-import Link from "@/components/atoms/link";
 import OnScreenTransition from "@/components/atoms/onScreenTransition";
 import SectionContainer from "@/components/atoms/sectionContainer";
 import LetUsTalkBanner from "@/components/molecules/about/letUsTalkBanner";
 import ExperiencesSection from "@/components/organisms/about/experiencesSection";
 import ServicesSection from "@/components/organisms/about/servicesSection";
-import {
-  Box,
-  Card,
-  CardBody,
-  Center,
-  Heading,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Heading, Stack } from "@chakra-ui/react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About",
   description: "About Dimas Wibowo",
   openGraph: {
-    images: ["https://webowo.dev/images/card.png"],
+    images: ["https://webowo.dev/images/card-2.png"],
   },
 };
 

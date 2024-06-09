@@ -9,7 +9,7 @@ export default function SectionContainer({
 }) {
   return (
     <Box as={"section"} {...rest}>
-      <Container maxW="container.lg" {...containerProps}>
+      <Container maxW="container.lg" px={{ base: 5 }} {...containerProps}>
         {children}
       </Container>
     </Box>

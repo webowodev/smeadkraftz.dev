@@ -26,7 +26,7 @@ export async function generateMetadata({
       title: "Not Found",
       description: "Page Not Found",
       openGraph: {
-        images: ["https://webowo.dev/images/card.png"],
+        images: ["https://webowo.dev/images/card-2.png"],
       },
     };
   }
