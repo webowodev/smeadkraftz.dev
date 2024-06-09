@@ -19,11 +19,15 @@ export default function Page() {
       <MacbookScroll
         title={
           <Stack>
-            <Text fontFamily={"mono"} fontWeight={"bold"} fontSize={"5xl"}>
-              Hello World
+            <Text
+              fontFamily={"mono"}
+              fontWeight={"bold"}
+              fontSize={{ base: "3xl", md: "5xl" }}
+            >
+              {'$hello = "world";'}
             </Text>
             <Text fontFamily={"mono"}>
-              Scroll down to see my Macbook screen
+              {"// scroll down to see my macbook screen"}
             </Text>
           </Stack>
         }

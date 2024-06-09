@@ -1,4 +1,9 @@
 import Link from "@/components/atoms/link";
+import OnScreenTransition from "@/components/atoms/onScreenTransition";
+import SectionContainer from "@/components/atoms/sectionContainer";
+import LetUsTalkBanner from "@/components/molecules/about/letUsTalkBanner";
+import ExperiencesSection from "@/components/organisms/about/experiencesSection";
+import ServicesSection from "@/components/organisms/about/servicesSection";
 import {
   Box,
   Card,
@@ -20,27 +25,50 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <Box
-      minW={{ base: "100%", lg: "80%", xl: "60%" }}
-      maxW={{ base: "100%", lg: "80%", xl: "60%" }}
-    >
-      <Center mb={8}>
-        <Heading as="h1">What do I do?</Heading>
-      </Center>
-      <Stack>
-        <Card>
-          <CardBody>
-            <Heading fontSize={"2xl"} mb={4}>
-              Full-Stack Software Engineer
-            </Heading>
-            <Text>
-              I love to write code to build things, design systems and
-              architectures. Currently I am working remotely{" "}
-              <Link href="https://karyakarsa.com">@karyakarsa</Link>.
-            </Text>
-          </CardBody>
-        </Card>
-      </Stack>
-    </Box>
+    <Stack minH={"90vh"} gap={10}>
+      <OnScreenTransition offscreen={{ y: -20, opacity: 0 }}>
+        <SectionContainer
+          containerProps={{ px: 5 }}
+          bgGradient={"radial(#ADFCAD, #98EC98)"}
+          pt={"76px"}
+        >
+          {/* start about me */}
+          <Stack pt={8} textAlign={"center"} spacing={4}>
+            <OnScreenTransition delay={0.2}>
+              <Heading color="black" as={"h1"} fontWeight={"bold"}>
+                About Dimas
+              </Heading>
+            </OnScreenTransition>
+            <OnScreenTransition delay={0.3}>
+              <Box
+                as={"blockquote"}
+                fontSize={"lg"}
+                px={{ base: 0, md: 24 }}
+                color={"black"}
+                fontWeight={"medium"}
+              >
+                Since 2013 I identified my self as a Full-Stack Software
+                Engineer. I did web & mobile app development also cloud
+                computing to make sure I can deliver solutions to help clients
+                do business across various sectors.
+              </Box>
+            </OnScreenTransition>
+          </Stack>
+          {/* end about me */}
+
+          {/* start let us talk */}
+          <LetUsTalkBanner />
+          {/* end let us talk */}
+        </SectionContainer>
+      </OnScreenTransition>
+
+      {/* start experiences section */}
+      <ExperiencesSection />
+      {/* end experiences section */}
+
+      {/* start services section */}
+      <ServicesSection />
+      {/* end services section */}
+    </Stack>
   );
 }

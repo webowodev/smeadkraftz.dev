@@ -13,16 +13,24 @@ import {
   MenuItem,
   MenuList,
   Show,
+  Skeleton,
   Stack,
   Text,
   useColorMode,
 } from "@chakra-ui/react";
-import ToggleColorModeButton from "@/components/atoms/toggleColorModeButton";
 import Logo from "@/components/atoms/logo";
 import { useBase } from "@/providers/baseProvider";
 import { Link } from "@chakra-ui/next-js";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import SocialButton from "@/components/atoms/socialButton";
+import dynamic from "next/dynamic";
+
+const ToggleColorModeButton = dynamic(
+  () => import("@/components/atoms/toggleColorModeButton"),
+  {
+    loading: () => <Skeleton w={"80px"} h={"32px"} rounded={"full"} />,
+  }
+);
 
 export default function NavigationHeader() {
   const { colorMode } = useColorMode();
@@ -93,7 +101,9 @@ export default function NavigationHeader() {
           <Flex alignItems={"center"}>
             <Stack alignItems="center" direction={"row"} spacing={4}>
               <SocialButton url="https://github.com/daemswibowo" />
-              <ToggleColorModeButton />
+              <Box w={"80px"}>
+                <ToggleColorModeButton />
+              </Box>
 
               {/* only show menu button on mobile */}
               {menus?.length ? (

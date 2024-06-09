@@ -3,7 +3,7 @@ import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 import cardTheme from "./styles/card";
 
 const config: ThemeConfig = {
-  initialColorMode: "dark",
+  initialColorMode: "light",
   useSystemColorMode: false,
   disableTransitionOnChange: false,
 };
@@ -14,6 +14,7 @@ const styles = {
       bg: mode("white", "gray.900")(props),
       transitionProperty: "all",
       transitionDuration: "ultra-slow",
+      letterSpacing: ".1em",
     },
   }),
 };
@@ -60,8 +61,8 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    body: "Urbanist, sans-serif",
-    heading: "Urbanist, sans-serif",
+    body: "var(--font-urbanist)",
+    heading: "var(--font-urbanist)",
     mono: "Menlo, monospace",
   },
 
@@ -78,7 +79,6 @@ const theme = extendTheme({
         },
       }),
     },
-    Card: cardTheme,
     Button: {
       variants: {
         solid: (props: StyleFunctionProps) => ({
@@ -95,7 +95,7 @@ const theme = extendTheme({
         }),
         outline: (props: StyleFunctionProps) => ({
           borderRadius: "full",
-          bg: mode("white", "transparent")(props),
+          bg: mode("transparent", "transparent")(props),
           color: mode("green.500", "green.100")(props),
           borderColor: mode("green.500", "green.100")(props),
           fontWeight: "bold",

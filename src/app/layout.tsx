@@ -4,6 +4,7 @@ import "@/app/globals.css";
 import fetchCommonData from "@/lib/usecases/fetchCommonData";
 import Footer from "@/components/organisms/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { fonts } from "./fonts";
 
 export default async function RootLayout({
   children,
@@ -13,7 +14,7 @@ export default async function RootLayout({
   const { menus } = await fetchCommonData();
 
   return (
-    <html lang="en">
+    <html lang="en" className={fonts.urbanist.variable}>
       <head>
         <meta name="author" content="Dimas Wibowo" />
         <link rel="icon" href="/favicon.ico" />
